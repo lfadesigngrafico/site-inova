@@ -5,11 +5,12 @@ interface NavbarProps {
   onOpenSearch: () => void;
   onNavigateSection?: (sectionId: string) => void;
   onOpenAppointment: () => void;
+  activeSection?: string;
 }
 
 const NAV_ITEMS = [
   { label: 'A INOVA', href: '#sobre' },
-  { label: 'VETS', href: '#equipe' },
+  { label: 'VETS', href: '#vets' },
   { label: 'BANCO DE SANGUE', href: '#banco-sangue' },
   { label: 'SERVIÇOS', href: '#servicos' },
   { label: 'ESPECIALIDADES', href: '#especialidades' },
@@ -23,6 +24,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenSearch,
   onNavigateSection,
   onOpenAppointment,
+  activeSection,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -48,6 +50,12 @@ export const Navbar: React.FC<NavbarProps> = ({
             <a
               id="header-logo-link"
               href="/"
+              onClick={(e) => {
+                e.preventDefault();
+                if (onNavigateSection) {
+                  onNavigateSection('home');
+                }
+              }}
               className="inline-block transition-transform hover:opacity-95"
               aria-label="Inova Hospital Veterinário 24h"
             >
@@ -66,17 +74,26 @@ export const Navbar: React.FC<NavbarProps> = ({
             className="hidden xl:flex flex-1 items-center justify-evenly mx-3 2xl:mx-6"
             aria-label="Menu Principal"
           >
-            {NAV_ITEMS.map((item) => (
-              <a
-                key={item.label}
-                id={`nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
-                href={item.href}
-                onClick={(e) => handleItemClick(e, item.href)}
-                className="font-['Dosis',sans-serif] font-[300] text-[15px] 2xl:text-[16px] text-[#282828] tracking-wider transition-colors duration-150 px-3 py-1.5 uppercase whitespace-nowrap hover:bg-[#282828] hover:text-white"
-              >
-                {item.label}
-              </a>
-            ))}
+            {NAV_ITEMS.map((item) => {
+              const isActive =
+                activeSection === item.href.replace('#', '') ||
+                (activeSection === 'home' && item.href === '#sobre');
+              return (
+                <a
+                  key={item.label}
+                  id={`nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
+                  href={item.href}
+                  onClick={(e) => handleItemClick(e, item.href)}
+                  className={`font-['Dosis',sans-serif] font-[300] text-[15px] 2xl:text-[16px] tracking-wider transition-colors duration-150 px-3 py-1.5 uppercase whitespace-nowrap ${
+                    isActive
+                      ? 'bg-[#282828] text-white font-semibold'
+                      : 'text-[#282828] hover:bg-[#282828] hover:text-white'
+                  }`}
+                >
+                  {item.label}
+                </a>
+              );
+            })}
           </nav>
 
           {/* Magnifying Search Icon on Desktop */}
@@ -97,9 +114,11 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="hidden lg:flex xl:hidden flex-1 items-center justify-evenly mx-2">
             <div className="flex items-center space-x-2 font-['Dosis',sans-serif] font-[300] text-[14px] text-[#282828] uppercase">
               <a href="#sobre" onClick={(e) => handleItemClick(e, '#sobre')} className="px-2.5 py-1.5 hover:bg-[#282828] hover:text-white transition-colors">A INOVA</a>
+              <a href="#vets" onClick={(e) => handleItemClick(e, '#vets')} className={`px-2.5 py-1.5 transition-colors ${activeSection === 'vets' ? 'bg-[#282828] text-white' : 'hover:bg-[#282828] hover:text-white'}`}>VETS</a>
               <a href="#servicos" onClick={(e) => handleItemClick(e, '#servicos')} className="px-2.5 py-1.5 hover:bg-[#282828] hover:text-white transition-colors">SERVIÇOS</a>
               <a href="#especialidades" onClick={(e) => handleItemClick(e, '#especialidades')} className="px-2.5 py-1.5 hover:bg-[#282828] hover:text-white transition-colors">ESPECIALIDADES</a>
-              <a href="#contatos" onClick={(e) => handleItemClick(e, '#contatos')} className="px-2.5 py-1.5 hover:bg-[#282828] hover:text-white transition-colors">CONTATOS</a>
+              <a href="#blog" onClick={(e) => handleItemClick(e, '#blog')} className={`px-2.5 py-1.5 transition-colors ${activeSection === 'blog' ? 'bg-[#282828] text-white' : 'hover:bg-[#282828] hover:text-white'}`}>BLOG</a>
+              <a href="#contatos" onClick={(e) => handleItemClick(e, '#contatos')} className={`px-2.5 py-1.5 transition-colors ${activeSection === 'contatos' ? 'bg-[#282828] text-white' : 'hover:bg-[#282828] hover:text-white'}`}>CONTATOS</a>
             </div>
             <button
               type="button"

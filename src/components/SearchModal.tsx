@@ -40,6 +40,12 @@ const SEARCH_DATABASE = [
     action: 'specialties',
   },
   {
+    title: 'Nossos Vets - Corpo Clínico Especializado',
+    category: 'Equipe',
+    desc: 'Conheça todos os médicos veterinários da Inova, suas especialidades e currículos completos.',
+    action: 'vets',
+  },
+  {
     title: 'Unidade Campolim',
     category: 'Endereços',
     desc: 'Avenida Gisele Constantino, 1495 – Parque Campolim, Sorocaba/SP. Tel: (15) 3333-2300.',
@@ -50,6 +56,24 @@ const SEARCH_DATABASE = [
     category: 'Endereços',
     desc: 'Avenida Nogueira Padilha, 1770 – Vila Hortência, Sorocaba/SP. Tel: (15) 3333-2300.',
     action: 'location-nogueira',
+  },
+  {
+    title: 'Blog Inova - Artigos & Dicas Veterinárias',
+    category: 'Blog',
+    desc: 'Artigos sobre giárdia, parvovirose, cinomose, leishmaniose, carrapato e saúde do pet.',
+    action: 'blog',
+  },
+  {
+    title: 'Giárdia em cães: sintomas e prevenção',
+    category: 'Blog',
+    desc: 'Entenda os sintomas da giárdia e como proteger seu cão de reinfecções.',
+    action: 'blog:giardia-canina',
+  },
+  {
+    title: 'Leishmaniose em cães: sintomas e transmissão',
+    category: 'Blog',
+    desc: 'Saiba como identificar leishmaniose canina e os cuidados preventivos.',
+    action: 'blog:leishmaniose',
   },
 ];
 

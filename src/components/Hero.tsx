@@ -54,7 +54,9 @@ export const Hero: React.FC<HeroProps> = ({
               id="hero-description"
               className="text-white/95 text-sm sm:text-base lg:text-[17px] mt-2 max-w-xl font-normal leading-relaxed"
             >
-              Equipe especializada, tecnologia avançada e o carinho que seu pet merece.
+              Equipe especializada, tecnologia avançada
+              <br />
+              e o carinho que seu pet merece.
             </p>
 
             {/* 3 Pills: Carinho, Atenção, Segurança */}

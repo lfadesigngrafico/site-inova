@@ -3,6 +3,7 @@ import { X, Calendar, Award } from 'lucide-react';
 
 interface TeamSectionProps {
   onOpenAppointment: () => void;
+  onOpenVetsPage?: () => void;
 }
 
 interface TeamMember {
@@ -15,7 +16,10 @@ interface TeamMember {
   bio?: string;
 }
 
-export const TeamSection: React.FC<TeamSectionProps> = ({ onOpenAppointment }) => {
+export const TeamSection: React.FC<TeamSectionProps> = ({
+  onOpenAppointment,
+  onOpenVetsPage,
+}) => {
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
   const [allTeamModalOpen, setAllTeamModalOpen] = useState(false);
 
@@ -164,7 +168,13 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ onOpenAppointment }) =
           <button
             id="btn-ver-toda-equipe"
             type="button"
-            onClick={() => setAllTeamModalOpen(true)}
+            onClick={() => {
+              if (onOpenVetsPage) {
+                onOpenVetsPage();
+              } else {
+                setAllTeamModalOpen(true);
+              }
+            }}
             className="bg-[#E5A823] hover:bg-[#d49918] active:scale-95 text-white font-bold text-sm sm:text-base px-8 sm:px-10 py-3.5 rounded-lg shadow-sm hover:shadow-md transition-all cursor-pointer"
           >
             Ver toda a equipe
