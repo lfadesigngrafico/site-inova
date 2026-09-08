@@ -1,0 +1,6 @@
+{
+  "name": "Inova Hospital Veterinário",
+  "description": "Site institucional da Inova Hospital e Clínica Veterinária 24h em Sorocaba.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
