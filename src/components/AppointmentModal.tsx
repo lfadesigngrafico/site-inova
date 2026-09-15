@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { X, Calendar, Clock, MapPin, CheckCircle2, MessageSquare } from 'lucide-react';
+import { X, Calendar, Clock, MapPin, CheckCircle2 } from 'lucide-react';
+import { WhatsAppIcon } from './WhatsAppIcon';
 
 interface AppointmentModalProps {
   isOpen: boolean;
@@ -247,7 +248,7 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onCl
                   onClick={handleSendWhatsapp}
                   className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl text-sm flex items-center justify-center gap-2 transition-colors cursor-pointer shadow-md"
                 >
-                  <MessageSquare className="w-4 h-4" />
+                  <WhatsAppIcon className="w-4 h-4" color="white" />
                   <span>Confirmar pelo WhatsApp Agora</span>
                 </button>
 

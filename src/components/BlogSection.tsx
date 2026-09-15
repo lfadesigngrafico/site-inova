@@ -102,11 +102,11 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title & Subtitle inside the purple gradient top area */}
         <div className="text-center text-white mb-10 sm:mb-12">
-          <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-extrabold text-white tracking-tight mb-3">
+          <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-extrabold text-white tracking-tight mb-3 [text-wrap:balance]">
             Dicas Inova
           </h2>
-          <p className="text-sm sm:text-base text-white/90 max-w-2xl mx-auto font-normal">
-            Saiba mais sobre o seu pet
+          <p className="text-sm sm:text-base text-white/90 max-w-xl mx-auto font-normal [text-wrap:balance]">
+            Saiba mais sobre o seu&nbsp;pet
           </p>
         </div>
 

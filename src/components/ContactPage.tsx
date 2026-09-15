@@ -8,14 +8,14 @@ import {
   CheckCircle2,
   ChevronDown,
   ChevronUp,
-  MessageCircle,
   Briefcase,
   Calendar,
   AlertCircle,
   ArrowLeft,
-  ChevronRight,
   ShieldCheck,
 } from 'lucide-react';
+import { WhatsAppIcon } from './WhatsAppIcon';
+import { LocationSection } from './LocationSection';
 
 interface ContactPageProps {
   onBackToHome: () => void;
@@ -28,16 +28,17 @@ export const ContactPage: React.FC<ContactPageProps> = ({
   onOpenAppointment,
   onOpenEmergency,
 }) => {
-  // Form state
-  const [formData, setFormData] = useState({
-    name: '',
+  // Form state matching the requested layout
+  const initialFormData = {
+    nome: '',
     email: '',
-    phone: '',
-    petType: 'Cão',
-    unit: 'Nogueira Padilha (Hospital 24h)',
-    subject: 'Agendamento de Consulta',
-    message: '',
-  });
+    whatsapp: '',
+    meuPet: '',
+    interesse: 'Agendar consulta ou retorno',
+    unidade: '',
+    mensagem: '',
+  };
+  const [formData, setFormData] = useState(initialFormData);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -209,25 +210,25 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
   return (
     <div className="bg-[#FAF9F6] min-h-screen text-[#282828] pb-16">
-      {/* Top Breadcrumb Bar */}
-      <div className="bg-[#EDEBE6] border-b border-slate-200/80 py-3">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between text-xs sm:text-sm">
-          <div className="flex items-center space-x-2 text-slate-600">
+      {/* Top Breadcrumb Header Bar padronizado com o estilo do Blog */}
+      <div className="bg-white border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-wrap items-center justify-between gap-3">
+          <nav aria-label="Breadcrumb" className="flex items-center space-x-2 text-sm text-slate-500 font-['Dosis',sans-serif]">
             <button
               type="button"
               onClick={onBackToHome}
-              className="hover:text-[#541E87] hover:underline font-medium transition-colors cursor-pointer"
+              className="hover:text-[#541E87] font-semibold transition-colors cursor-pointer"
             >
               Início
             </button>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <span className="text-[#541E87] font-semibold">Contato</span>
-          </div>
+            <span>/</span>
+            <span className="text-[#541E87] font-bold">Contato</span>
+          </nav>
 
           <button
             type="button"
             onClick={onBackToHome}
-            className="inline-flex items-center gap-1.5 text-[#541E87] hover:text-[#3B1260] font-semibold text-xs sm:text-sm hover:underline transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#541E87] hover:text-[#A400EB] transition-colors cursor-pointer py-1 px-3 rounded-md hover:bg-purple-50"
           >
             <ArrowLeft className="w-4 h-4" />
             Voltar para o site principal
@@ -242,15 +243,12 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl">
-            {/* Traço fino na cor #A7CD4E */}
-            <div className="w-16 sm:w-20 h-[2px] bg-[#A7CD4E] mb-3 rounded-full" />
-
-            <h1 className="font-['Dosis',sans-serif] font-bold text-3xl sm:text-4xl md:text-5xl uppercase tracking-wide mb-3">
+            <h1 className="font-['Dosis',sans-serif] font-bold text-3xl sm:text-4xl md:text-5xl uppercase tracking-wide mb-3 [text-wrap:balance]">
               Contato
             </h1>
 
-            <p className="text-white/90 text-base sm:text-lg leading-relaxed font-normal">
-              Preencha os seus dados e entramos em contato, ou fale diretamente com a equipe do Inova Hospital Veterinário 24h pelos canais de pronto atendimento.
+            <p className="text-white/90 text-base sm:text-lg leading-relaxed font-normal max-w-2xl [text-wrap:balance]">
+              Preencha os seus dados e entramos em contato, ou fale diretamente com a equipe do Inova Hospital Veterinário 24h pelos canais de pronto&nbsp;atendimento.
             </p>
           </div>
         </div>
@@ -278,8 +276,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
           {/* Card 2: WhatsApp */}
           <div className="bg-white rounded-xl p-5 shadow-sm border border-slate-200/80 flex items-start gap-4">
-            <div className="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center shrink-0 text-emerald-600">
-              <MessageCircle className="w-6 h-6" />
+            <div className="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center shrink-0">
+              <WhatsAppIcon className="w-7 h-7" />
             </div>
             <div>
               <span className="text-xs text-slate-500 font-semibold uppercase tracking-wider block">WhatsApp Oficial</span>
@@ -335,8 +333,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({
           <div className="lg:col-span-7 bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/80 shadow-xs">
             <div className="flex items-center gap-2 mb-2 text-[#541E87]">
               <Calendar className="w-5 h-5 text-[#FAAE00]" />
-              <h2 className="font-['Dosis',sans-serif] font-bold text-2xl uppercase tracking-wide text-[#282828]">
-                Preencha os seus dados
+              <h2 className="font-['Dosis',sans-serif] font-bold text-2xl sm:text-3xl uppercase tracking-wide text-[#282828]">
+                Preencha os campos e agende uma consulta
               </h2>
             </div>
             <p className="text-sm text-slate-600 mb-6">
@@ -344,145 +342,194 @@ export const ContactPage: React.FC<ContactPageProps> = ({
             </p>
 
             {submitted ? (
-              <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-6 text-center animate-in fade-in">
+              <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-6 text-center animate-in fade-in shadow-xs">
                 <CheckCircle2 className="w-12 h-12 text-emerald-600 mx-auto mb-3" />
                 <h3 className="font-['Dosis',sans-serif] font-bold text-xl text-emerald-900 uppercase mb-1">
                   Mensagem Enviada com Sucesso!
                 </h3>
-                <p className="text-sm text-emerald-700 mb-5">
+                <p className="text-sm text-slate-600 mb-5">
                   Agradecemos seu contato. Nossa equipe retornará em breve pelo telefone ou e-mail informado.
                 </p>
                 <button
                   type="button"
                   onClick={() => {
                     setSubmitted(false);
-                    setFormData({
-                      name: '',
-                      email: '',
-                      phone: '',
-                      petType: 'Cão',
-                      unit: 'Nogueira Padilha (Hospital 24h)',
-                      subject: 'Agendamento de Consulta',
-                      message: '',
-                    });
+                    setFormData(initialFormData);
                   }}
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm px-6 py-2.5 rounded-lg transition-colors cursor-pointer"
+                  className="bg-[#FAAE00] hover:bg-[#e69f00] text-[#282828] font-bold text-xs sm:text-sm px-6 py-2.5 rounded-lg transition-colors cursor-pointer"
                 >
                   Enviar outra mensagem
                 </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
-                {/* Nome */}
+                {/* Nome* */}
                 <div>
-                  <label htmlFor="contact-name" className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                    Nome Completo *
+                  <label htmlFor="contact-name" className="block text-xs font-bold text-[#282828] uppercase tracking-wider mb-1.5">
+                    Nome *
                   </label>
                   <input
                     id="contact-name"
                     required
                     type="text"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    value={formData.nome}
+                    onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
                     placeholder="Seu nome completo"
                     className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-800 placeholder-slate-400 focus:bg-white focus:ring-2 focus:ring-[#541E87] focus:border-[#541E87] outline-hidden transition-all"
                   />
                 </div>
 
-                {/* Email & Phone */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="contact-email" className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                      E-mail *
-                    </label>
-                    <input
-                      id="contact-email"
-                      required
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="seu@email.com"
-                      className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-800 placeholder-slate-400 focus:bg-white focus:ring-2 focus:ring-[#541E87] focus:border-[#541E87] outline-hidden transition-all"
-                    />
-                  </div>
+                {/* Email* */}
+                <div>
+                  <label htmlFor="contact-email" className="block text-xs font-bold text-[#282828] uppercase tracking-wider mb-1.5">
+                    Email *
+                  </label>
+                  <input
+                    id="contact-email"
+                    required
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    placeholder="seu@email.com"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-800 placeholder-slate-400 focus:bg-white focus:ring-2 focus:ring-[#541E87] focus:border-[#541E87] outline-hidden transition-all"
+                  />
+                </div>
 
-                  <div>
-                    <label htmlFor="contact-phone" className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                      Telefone / WhatsApp *
-                    </label>
+                {/* WhatsApp* */}
+                <div>
+                  <label htmlFor="contact-whatsapp" className="block text-xs font-bold text-[#282828] uppercase tracking-wider mb-1.5">
+                    WhatsApp *
+                  </label>
+                  <div className="relative flex items-center bg-slate-50 border border-slate-200 rounded-lg focus-within:bg-white focus-within:ring-2 focus-within:ring-[#541E87] focus-within:border-[#541E87] transition-all overflow-hidden">
+                    <div className="flex items-center gap-1 px-3 py-2.5 bg-slate-100 border-r border-slate-200 text-slate-700 select-none shrink-0 text-xs font-semibold">
+                      <span className="text-sm leading-none" role="img" aria-label="Brasil">🇧🇷</span>
+                      <span className="text-slate-600">BR</span>
+                      <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
+                    </div>
                     <input
-                      id="contact-phone"
+                      id="contact-whatsapp"
                       required
                       type="tel"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      value={formData.whatsapp}
+                      onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
                       placeholder="(15) 99999-9999"
-                      className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-800 placeholder-slate-400 focus:bg-white focus:ring-2 focus:ring-[#541E87] focus:border-[#541E87] outline-hidden transition-all"
+                      className="w-full bg-transparent px-4 py-2.5 text-sm text-slate-800 placeholder-slate-400 outline-hidden"
                     />
                   </div>
                 </div>
 
-                {/* Unidade & Assunto */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="contact-unit" className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                      Unidade de Preferência
-                    </label>
-                    <select
-                      id="contact-unit"
-                      value={formData.unit}
-                      onChange={(e) => setFormData({ ...formData, unit: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-800 focus:bg-white focus:ring-2 focus:ring-[#541E87] focus:border-[#541E87] outline-hidden transition-all"
-                    >
-                      <option value="Nogueira Padilha (Hospital 24h)">Hospital 24h – Nogueira Padilha</option>
-                      <option value="Unidade Campolim">Clínica – Unidade Campolim</option>
-                    </select>
-                  </div>
+                {/* Meu pet é:* */}
+                <div>
+                  <label htmlFor="contact-pet" className="block text-xs font-bold text-[#282828] uppercase tracking-wider mb-1.5">
+                    Meu pet é: *
+                  </label>
+                  <select
+                    id="contact-pet"
+                    required
+                    value={formData.meuPet}
+                    onChange={(e) => setFormData({ ...formData, meuPet: e.target.value })}
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-800 focus:bg-white focus:ring-2 focus:ring-[#541E87] focus:border-[#541E87] outline-hidden transition-all"
+                  >
+                    <option value="" disabled>Selecione</option>
+                    <option value="Cachorro">Cachorro</option>
+                    <option value="Gato">Gato</option>
+                    <option value="Silvestre / Exótico">Silvestre / Exótico</option>
+                    <option value="Outro">Outro</option>
+                  </select>
+                </div>
 
-                  <div>
-                    <label htmlFor="contact-subject" className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                      Assunto
-                    </label>
-                    <select
-                      id="contact-subject"
-                      value={formData.subject}
-                      onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-800 focus:bg-white focus:ring-2 focus:ring-[#541E87] focus:border-[#541E87] outline-hidden transition-all"
-                    >
-                      <option value="Agendamento de Consulta">Agendar Consulta Preventiva / Especialista</option>
-                      <option value="Vacinação">Vacinas para Cães ou Gatos</option>
-                      <option value="Exames">Informações sobre Exames</option>
-                      <option value="Cirurgia / Castração">Cirurgia de Castração ou Outros</option>
-                      <option value="Banco de Sangue">Banco de Sangue / Doação</option>
-                      <option value="Outros">Outras Dúvidas</option>
-                    </select>
+                {/* Tenho interesse em:* */}
+                <div className="pt-1">
+                  <span className="block text-xs font-bold text-[#282828] uppercase tracking-wider mb-2">
+                    Tenho interesse em: *
+                  </span>
+                  <div className="space-y-2 bg-slate-50 border border-slate-200 rounded-lg p-3 sm:p-3.5">
+                    {[
+                      'Agendar consulta ou retorno',
+                      'Agendar exames',
+                      'Mais informações sobre os serviços',
+                    ].map((option) => (
+                      <label key={option} className="flex items-center gap-2.5 cursor-pointer text-sm font-medium text-[#282828]">
+                        <input
+                          type="radio"
+                          name="interesse"
+                          value={option}
+                          checked={formData.interesse === option}
+                          onChange={(e) => setFormData({ ...formData, interesse: e.target.value })}
+                          className="w-4 h-4 text-[#541E87] focus:ring-[#541E87] border-slate-300 cursor-pointer"
+                          required
+                        />
+                        <span>{option}</span>
+                      </label>
+                    ))}
                   </div>
                 </div>
 
-                {/* Mensagem */}
+                {/* Escolha a Unidade:* */}
                 <div>
-                  <label htmlFor="contact-message" className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                    Mensagem / Detalhes sobre o Pet
+                  <label htmlFor="contact-unidade" className="block text-xs font-bold text-[#282828] uppercase tracking-wider mb-1.5">
+                    Escolha a Unidade: *
+                  </label>
+                  <select
+                    id="contact-unidade"
+                    required
+                    value={formData.unidade}
+                    onChange={(e) => setFormData({ ...formData, unidade: e.target.value })}
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-800 focus:bg-white focus:ring-2 focus:ring-[#541E87] focus:border-[#541E87] outline-hidden transition-all"
+                  >
+                    <option value="" disabled>Selecione</option>
+                    <option value="Hospital 24h – Unidade Nogueira Padilha">Hospital 24h – Unidade Nogueira Padilha</option>
+                    <option value="Clínica de Especialidades – Unidade Campolim">Clínica de Especialidades – Unidade Campolim</option>
+                  </select>
+                </div>
+
+                {/* Mande a sua Mensagem */}
+                <div>
+                  <label htmlFor="contact-mensagem" className="block text-xs font-bold text-[#282828] uppercase tracking-wider mb-1.5">
+                    Mande a sua Mensagem
                   </label>
                   <textarea
-                    id="contact-message"
-                    rows={4}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    id="contact-mensagem"
+                    rows={3}
+                    value={formData.mensagem}
+                    onChange={(e) => setFormData({ ...formData, mensagem: e.target.value })}
                     placeholder="Conte-nos um pouco sobre a necessidade do seu pet..."
                     className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-800 placeholder-slate-400 focus:bg-white focus:ring-2 focus:ring-[#541E87] focus:border-[#541E87] outline-hidden transition-all resize-none"
                   />
                 </div>
 
-                {/* Submit Button */}
+                {/* Consent Text */}
+                <p className="text-xs text-slate-600 leading-relaxed pt-1">
+                  Ao preencher o formulário, você está ciente que podemos, de tempos em tempos, enviar comunicações e conteúdos de acordo com os seus interesses. Você pode modificar as suas permissões a qualquer tempo solicitando o descadastro no email.
+                </p>
+
+                {/* Submit Button (Botão Amarelo com texto preto) */}
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full sm:w-auto bg-[#FAAE00] hover:bg-[#e69f00] active:scale-98 text-[#282828] font-bold text-sm px-8 py-3.5 rounded-lg shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full sm:w-auto bg-[#FAAE00] hover:bg-[#e69f00] active:scale-98 text-[#282828] font-bold text-sm px-8 py-3.5 rounded-lg shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer uppercase tracking-wider"
                 >
                   <Send className="w-4 h-4" />
-                  {loading ? 'Enviando...' : 'Enviar Dados'}
+                  {loading ? 'Enviando...' : 'Enviar Mensagem'}
                 </button>
+
+                {/* Footer Notice */}
+                <div className="pt-2 text-xs sm:text-[13px] text-slate-700 space-y-1 border-t border-slate-100 mt-4">
+                  <p className="font-bold text-[#282828] tracking-wide uppercase">
+                    ESSE É UM CANAL PARA AGENDAMENTO DE CONSULTA/EXAME EM SOROCABA-SP.
+                  </p>
+                  <p className="text-slate-600">
+                    Para curiosidades e dicas sobre Pets, acesse nosso{' '}
+                    <a
+                      href="https://www.instagram.com/inovahospitalveterinario/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#541E87] hover:text-[#A400EB] hover:underline font-semibold"
+                    >
+                      Instagram clicando aqui
+                    </a>.
+                  </p>
+                </div>
               </form>
             )}
           </div>
@@ -622,39 +669,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({
         </div>
       </section>
 
-      {/* Map Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
-        <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-xs">
-          <div className="p-4 sm:p-6 bg-slate-50 border-b border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <div>
-              <h3 className="font-['Dosis',sans-serif] font-bold text-lg text-[#282828] uppercase">
-                Localização Hospital Inova Veterinária 24h
-              </h3>
-              <p className="text-xs text-slate-500">
-                Av. Coronel Nogueira Padilha, 1770 - Vila Hortência, Sorocaba/SP
-              </p>
-            </div>
-            <a
-              href="https://maps.google.com/?q=Inova+Hospital+Veterinario+Sorocaba"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#541E87] hover:bg-[#3B1260] text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors flex items-center gap-1.5"
-            >
-              <MapPin className="w-3.5 h-3.5" />
-              Abrir no Google Maps
-            </a>
-          </div>
-          <div className="h-80 sm:h-96 w-full">
-            <iframe
-              title="Mapa Hospital Veterinário Inova"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.0772745330364!2d-47.439775!3d-23.518933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c58a5e0193bb9f%3A0x86134ae424076722!2sInova%20Hospital%20Veterin%C3%A1rio!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
-              className="w-full h-full border-0"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
-        </div>
-      </div>
+      {/* Seção de Localização (igual à Home) */}
+      <LocationSection className="bg-transparent" />
     </div>
   );
 };

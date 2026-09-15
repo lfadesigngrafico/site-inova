@@ -1,5 +1,6 @@
 import React from 'react';
-import { X, Phone, AlertTriangle, Clock, MapPin, Navigation, MessageCircle } from 'lucide-react';
+import { X, Phone, AlertTriangle, Clock, MapPin, Navigation } from 'lucide-react';
+import { WhatsAppIcon } from './WhatsAppIcon';
 
 interface EmergencyModalProps {
   isOpen: boolean;
@@ -76,7 +77,7 @@ export const EmergencyModal: React.FC<EmergencyModalProps> = ({ isOpen, onClose 
               rel="noopener noreferrer"
               className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl text-center text-sm flex items-center justify-center gap-2.5 shadow-md transition-transform hover:scale-[1.01]"
             >
-              <MessageCircle className="w-5 h-5" />
+              <WhatsAppIcon className="w-5 h-5" color="white" />
               <span>Avisar Emergência via WhatsApp</span>
             </a>
 

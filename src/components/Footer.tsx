@@ -27,7 +27,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacyPolicy }) => {
               <div id="footer-social-icons" className="flex items-center justify-center gap-5 text-slate-600">
                 <a
                   id="footer-email-link"
-                  href="mailto:contato@inovavet.com.br"
+                  href="mailto:secretaria@inovaveterinaria.com.br"
                   className="text-slate-600 hover:text-[#541E87] transition-colors"
                   title="Enviar e-mail para Inova"
                   aria-label="Enviar e-mail"
@@ -37,7 +37,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacyPolicy }) => {
 
                 <a
                   id="footer-youtube-link"
-                  href="https://www.youtube.com"
+                  href="https://www.youtube.com/channel/UC-PR1yhARc8IxmcEZhSHl9w"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-slate-600 hover:text-red-600 transition-colors"
@@ -49,7 +49,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacyPolicy }) => {
 
                 <a
                   id="footer-instagram-link"
-                  href="https://www.instagram.com"
+                  href="https://www.instagram.com/inovahospitalveterinario/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-slate-600 hover:text-pink-600 transition-colors"
@@ -61,7 +61,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacyPolicy }) => {
 
                 <a
                   id="footer-facebook-link"
-                  href="https://www.facebook.com"
+                  href="https://www.facebook.com/inovahospitalveterinario/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-slate-600 hover:text-blue-700 transition-colors"

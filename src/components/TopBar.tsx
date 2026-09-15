@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Phone, MessageCircle } from 'lucide-react';
+import { Phone } from 'lucide-react';
+import { WhatsAppIcon } from './WhatsAppIcon';
 
 interface TopBarProps {
   onOpenExamResults: () => void;
@@ -47,7 +48,7 @@ export const TopBar: React.FC<TopBarProps> = ({
             className="flex items-center gap-1.5 hover:text-[#FAAE00] transition-colors"
             title="Contato WhatsApp Inova"
           >
-            <MessageCircle className="w-3.5 h-3.5 text-green-400" />
+            <WhatsAppIcon className="w-4 h-4" />
             <span>(15) 3333-2300</span>
           </a>
         </div>

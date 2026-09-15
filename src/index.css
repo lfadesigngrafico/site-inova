@@ -9,3 +9,29 @@ body {
   font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   color: #282828;
 }
+
+/* Tipografia avançada: evitar palavras viúvas e balancear distribuição de palavras em títulos e subtítulos */
+h1, h2, h3, h4, h5, h6, .text-balance {
+  text-wrap: balance;
+}
+
+p, .text-pretty {
+  text-wrap: pretty;
+}
+
+/* Responsividade de vídeos embutidos e iframes (YouTube, etc.) */
+.wp-block-embed,
+.wp-block-embed__wrapper {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.specialty-raw-content iframe,
+.service-raw-content iframe,
+.wp-block-embed iframe {
+  width: 100% !important;
+  max-width: 100% !important;
+  aspect-ratio: 16 / 9 !important;
+  height: auto !important;
+  border-radius: 1rem;
+}

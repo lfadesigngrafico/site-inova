@@ -114,11 +114,11 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title & Subtitle inside the purple gradient top area */}
         <div className="text-center text-white mb-10 sm:mb-12">
-          <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-extrabold text-white tracking-tight mb-3">
+          <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-extrabold text-white tracking-tight mb-3 [text-wrap:balance]">
             Nossa equipe especializada
           </h2>
-          <p className="text-sm sm:text-base text-white/90 max-w-2xl mx-auto font-normal">
-            Veterinários experientes prontos para cuidar do seu pet com excelência técnica.
+          <p className="text-sm sm:text-base text-white/90 max-w-xl mx-auto font-normal [text-wrap:balance]">
+            Veterinários experientes prontos para cuidar do seu pet com excelência&nbsp;técnica.
           </p>
         </div>
 

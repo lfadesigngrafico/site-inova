@@ -3,6 +3,8 @@ import { X, CheckCircle, ArrowRight } from 'lucide-react';
 
 interface SpecialtiesSectionProps {
   onOpenAppointment: () => void;
+  onOpenSpecialtiesPage?: () => void;
+  onSelectSpecialtyDetail?: (id: string) => void;
 }
 
 interface Specialty {
@@ -14,7 +16,11 @@ interface Specialty {
   description: string;
 }
 
-export const SpecialtiesSection: React.FC<SpecialtiesSectionProps> = ({ onOpenAppointment }) => {
+export const SpecialtiesSection: React.FC<SpecialtiesSectionProps> = ({
+  onOpenAppointment,
+  onOpenSpecialtiesPage,
+  onSelectSpecialtyDetail,
+}) => {
   const [selectedSpecialty, setSelectedSpecialty] = useState<Specialty | null>(null);
   const [showAllModal, setShowAllModal] = useState(false);
 
@@ -188,7 +194,7 @@ export const SpecialtiesSection: React.FC<SpecialtiesSectionProps> = ({ onOpenAp
     <section id="especialidades" className="bg-white py-16 sm:py-20 lg:py-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading matching model */}
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#282828] text-center mb-12 sm:mb-16 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#282828] text-center mb-12 sm:mb-16 tracking-tight [text-wrap:balance]">
           Nossas especialidades
         </h2>
 
@@ -229,7 +235,13 @@ export const SpecialtiesSection: React.FC<SpecialtiesSectionProps> = ({ onOpenAp
           <button
             id="btn-veja-todas-especialidades"
             type="button"
-            onClick={() => setShowAllModal(true)}
+            onClick={() => {
+              if (onOpenSpecialtiesPage) {
+                onOpenSpecialtiesPage();
+              } else {
+                setShowAllModal(true);
+              }
+            }}
             className="bg-[#E5A823] hover:bg-[#d49918] active:scale-95 text-white font-bold text-sm sm:text-base px-8 sm:px-10 py-3.5 rounded-lg shadow-sm hover:shadow-md transition-all cursor-pointer"
           >
             Veja todas as especialidades

@@ -15,6 +15,7 @@ import {
   Check,
 } from 'lucide-react';
 import { ALL_BLOG_POSTS, BlogPostItem } from '../data/blogPosts';
+import { WhatsAppIcon } from './WhatsAppIcon';
 
 interface BlogPageProps {
   onBackToHome: () => void;
@@ -154,15 +155,12 @@ export const BlogPage: React.FC<BlogPageProps> = ({
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl">
-            {/* Traço fino na cor #A7CD4E */}
-            <div className="w-16 sm:w-20 h-[2px] bg-[#A7CD4E] mb-3 rounded-full" />
-
-            <h1 className="font-['Dosis',sans-serif] font-bold text-3xl sm:text-4xl md:text-5xl uppercase tracking-wide mb-3">
+            <h1 className="font-['Dosis',sans-serif] font-bold text-3xl sm:text-4xl md:text-5xl uppercase tracking-wide mb-3 [text-wrap:balance]">
               Blog Inova
             </h1>
 
-            <p className="text-white/90 text-base sm:text-lg leading-relaxed mb-8 max-w-2xl font-normal">
-              Informações, orientações veterinárias e cuidados essenciais para a saúde e o bem-estar do seu pet, produzidos e revisados pela equipe médica do Inova Hospital Veterinário 24h.
+            <p className="text-white/90 text-base sm:text-lg leading-relaxed mb-8 max-w-2xl font-normal [text-wrap:balance]">
+              Informações, orientações veterinárias e cuidados essenciais para a saúde e o bem-estar do seu pet, produzidos e revisados pela equipe médica do Inova Hospital Veterinário&nbsp;24h.
             </p>
 
             {/* Inova Search Bar */}
@@ -359,7 +357,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
                         className="text-slate-400 hover:text-emerald-600 p-1 rounded-full transition-colors cursor-pointer"
                         aria-label="Compartilhar no WhatsApp"
                       >
-                        <Share2 className="w-4 h-4" />
+                        <WhatsAppIcon className="w-4 h-4" />
                       </button>
                     </div>
                   </div>
@@ -521,7 +519,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
                   className="p-2 text-slate-500 hover:text-emerald-600 rounded-full hover:bg-slate-200 transition-colors cursor-pointer"
                   title="Compartilhar no WhatsApp"
                 >
-                  <Share2 className="w-4 h-4" />
+                  <WhatsAppIcon className="w-4 h-4" />
                 </button>
                 <button
                   type="button"
@@ -631,7 +629,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
                 onClick={() => handleShareWhatsApp(selectedArticle)}
                 className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 px-3 py-1.5 rounded-lg transition-colors"
               >
-                <Share2 className="w-4 h-4" />
+                <WhatsAppIcon className="w-4 h-4" />
                 Compartilhar no WhatsApp
               </button>
             </div>

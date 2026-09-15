@@ -6,7 +6,6 @@ import {
   Award,
   GraduationCap,
   ArrowLeft,
-  ChevronRight,
   Filter,
 } from 'lucide-react';
 import { VETS_DATA, Vet } from '../data/vetsData';
@@ -61,25 +60,25 @@ export const VetsPage: React.FC<VetsPageProps> = ({
 
   return (
     <div className="bg-[#FAF9F6] min-h-screen text-[#282828] pb-16">
-      {/* Top Breadcrumb Header Bar */}
-      <div className="bg-[#EDEBE6] border-b border-slate-200/80 py-3">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between text-xs sm:text-sm">
-          <div className="flex items-center space-x-2 text-slate-600">
+      {/* Top Breadcrumb Header Bar padronizado com o estilo do Blog */}
+      <div className="bg-white border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-wrap items-center justify-between gap-3">
+          <nav aria-label="Breadcrumb" className="flex items-center space-x-2 text-sm text-slate-500 font-['Dosis',sans-serif]">
             <button
               type="button"
               onClick={onBackToHome}
-              className="hover:text-[#541E87] hover:underline font-medium transition-colors cursor-pointer"
+              className="hover:text-[#541E87] font-semibold transition-colors cursor-pointer"
             >
               Início
             </button>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <span className="text-[#541E87] font-semibold">Nossos Vets</span>
-          </div>
+            <span>/</span>
+            <span className="text-[#541E87] font-bold">Nossos Vets</span>
+          </nav>
 
           <button
             type="button"
             onClick={onBackToHome}
-            className="inline-flex items-center gap-1.5 text-[#541E87] hover:text-[#3B1260] font-semibold text-xs sm:text-sm hover:underline transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#541E87] hover:text-[#A400EB] transition-colors cursor-pointer py-1 px-3 rounded-md hover:bg-purple-50"
           >
             <ArrowLeft className="w-4 h-4" />
             Voltar para o site principal
@@ -94,15 +93,12 @@ export const VetsPage: React.FC<VetsPageProps> = ({
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl">
-            {/* Traço fino na cor #A7CD4E */}
-            <div className="w-16 sm:w-20 h-[2px] bg-[#A7CD4E] mb-3 rounded-full" />
-
-            <h1 className="font-['Dosis',sans-serif] font-bold text-3xl sm:text-4xl md:text-5xl uppercase tracking-wide mb-3">
+            <h1 className="font-['Dosis',sans-serif] font-bold text-3xl sm:text-4xl md:text-5xl uppercase tracking-wide mb-3 [text-wrap:balance]">
               Nossos VETS
             </h1>
 
-            <p className="text-white/90 text-base sm:text-lg leading-relaxed mb-6 font-normal">
-              Corpo clínico altamente qualificado do Inova Hospital Veterinário 24h. Profissionais com residência, mestrado e especializações dedicados ao melhor cuidado para seu pet.
+            <p className="text-white/90 text-base sm:text-lg leading-relaxed mb-6 font-normal max-w-2xl text-balance [text-wrap:balance]">
+              Corpo clínico altamente qualificado do Inova Hospital Veterinário 24h. Profissionais com residência, mestrado e especializações dedicados ao melhor cuidado para seu&nbsp;pet.
             </p>
 
             {/* Search Input Bar */}
@@ -190,14 +186,14 @@ export const VetsPage: React.FC<VetsPageProps> = ({
                 id={`vet-card-${vet.id}`}
                 className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow border border-slate-200/80 overflow-hidden flex flex-col justify-between"
               >
-                {/* Vet Image */}
-                <div className="relative bg-[#F5F3EF] overflow-hidden aspect-4/3 flex items-center justify-center">
+                {/* Vet Image - dimensão quadrada, sem hover e sem corte da foto */}
+                <div className="relative bg-white overflow-hidden aspect-square flex items-center justify-center p-3 sm:p-4">
                   <img
                     src={vet.image}
                     alt={vet.name}
                     loading="lazy"
                     referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover object-top transition-transform duration-300 hover:scale-105"
+                    className="w-full h-full object-contain"
                     onError={(e) => {
                       (e.target as HTMLImageElement).src =
                         'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=600';
@@ -295,7 +291,7 @@ export const VetsPage: React.FC<VetsPageProps> = ({
                   src={selectedVet.image}
                   alt={selectedVet.name}
                   referrerPolicy="no-referrer"
-                  className="w-32 h-32 sm:w-36 sm:h-36 rounded-2xl object-cover object-top border-2 border-slate-100 shadow-sm shrink-0"
+                  className="w-32 h-32 sm:w-36 sm:h-36 rounded-2xl object-contain bg-white border-2 border-slate-100 shadow-sm shrink-0 p-1"
                   onError={(e) => {
                     (e.target as HTMLImageElement).src =
                       'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=600';
@@ -341,17 +337,11 @@ export const VetsPage: React.FC<VetsPageProps> = ({
               </div>
             </div>
 
-            {/* Modal Footer */}
-            <div className="bg-slate-50 px-6 py-4 border-t border-slate-100 flex items-center justify-end gap-3 shrink-0">
+            {/* Modal Footer: Agendar Consulta no canto esquerdo e Fechar no canto direito */}
+            <div className="bg-slate-50 px-6 py-4 border-t border-slate-100 flex items-center justify-between gap-3 shrink-0">
               <button
                 type="button"
-                onClick={() => setSelectedVet(null)}
-                className="px-4 py-2 text-xs sm:text-sm font-semibold text-slate-600 hover:text-slate-800 hover:bg-slate-200/60 rounded-lg transition-colors cursor-pointer"
-              >
-                Fechar
-              </button>
-              <button
-                type="button"
+                id="modal-btn-agendar-consulta"
                 onClick={() => {
                   setSelectedVet(null);
                   if (onNavigateToContact) {
@@ -364,6 +354,14 @@ export const VetsPage: React.FC<VetsPageProps> = ({
               >
                 <Calendar className="w-4 h-4" />
                 Agendar Consulta
+              </button>
+              <button
+                type="button"
+                id="modal-btn-fechar"
+                onClick={() => setSelectedVet(null)}
+                className="px-4 py-2 text-xs sm:text-sm font-semibold text-slate-600 hover:text-slate-800 hover:bg-slate-200/60 rounded-lg transition-colors cursor-pointer"
+              >
+                Fechar
               </button>
             </div>
           </div>

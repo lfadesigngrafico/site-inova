@@ -8,13 +8,23 @@ interface NavbarProps {
   activeSection?: string;
 }
 
-const NAV_ITEMS = [
+interface NavItem {
+  label: string;
+  href: string;
+  external?: boolean;
+}
+
+const NAV_ITEMS: NavItem[] = [
   { label: 'A INOVA', href: '#sobre' },
   { label: 'VETS', href: '#vets' },
   { label: 'BANCO DE SANGUE', href: '#banco-sangue' },
   { label: 'SERVIÇOS', href: '#servicos' },
   { label: 'ESPECIALIDADES', href: '#especialidades' },
-  { label: 'INOVA VIDA', href: '#inova-vida' },
+  {
+    label: 'INOVA VIDA',
+    href: 'https://materiais.inovaveterinaria.com.br/conversao-inova-vida-planos',
+    external: true,
+  },
   { label: 'BLOG', href: '#blog' },
   { label: 'DEPOIMENTOS', href: '#depoimentos' },
   { label: 'CONTATOS', href: '#contatos' },
@@ -28,13 +38,18 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const handleItemClick = (e: React.MouseEvent, href: string) => {
+  const handleItemClick = (e: React.MouseEvent, target: NavItem | string) => {
+    const item: NavItem = typeof target === 'string' ? { label: '', href: target } : target;
+    if (item.external) {
+      setMobileMenuOpen(false);
+      return;
+    }
     e.preventDefault();
     setMobileMenuOpen(false);
     if (onNavigateSection) {
-      onNavigateSection(href.replace('#', ''));
+      onNavigateSection(item.href.replace('#', ''));
     } else {
-      const el = document.querySelector(href);
+      const el = document.querySelector(item.href);
       if (el) {
         el.scrollIntoView({ behavior: 'smooth' });
       }
@@ -75,15 +90,15 @@ export const Navbar: React.FC<NavbarProps> = ({
             aria-label="Menu Principal"
           >
             {NAV_ITEMS.map((item) => {
-              const isActive =
-                activeSection === item.href.replace('#', '') ||
-                (activeSection === 'home' && item.href === '#sobre');
+              const isActive = !item.external && activeSection === item.href.replace('#', '');
               return (
                 <a
                   key={item.label}
                   id={`nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
                   href={item.href}
-                  onClick={(e) => handleItemClick(e, item.href)}
+                  target={item.external ? '_blank' : undefined}
+                  rel={item.external ? 'noopener noreferrer' : undefined}
+                  onClick={(e) => handleItemClick(e, item)}
                   className={`font-['Dosis',sans-serif] font-[300] text-[15px] 2xl:text-[16px] tracking-wider transition-colors duration-150 px-3 py-1.5 uppercase whitespace-nowrap ${
                     isActive
                       ? 'bg-[#282828] text-white font-semibold'
@@ -113,7 +128,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Medium Screens (lg) Compact Navigation */}
           <div className="hidden lg:flex xl:hidden flex-1 items-center justify-evenly mx-2">
             <div className="flex items-center space-x-2 font-['Dosis',sans-serif] font-[300] text-[14px] text-[#282828] uppercase">
-              <a href="#sobre" onClick={(e) => handleItemClick(e, '#sobre')} className="px-2.5 py-1.5 hover:bg-[#282828] hover:text-white transition-colors">A INOVA</a>
+              <a href="#sobre" onClick={(e) => handleItemClick(e, '#sobre')} className={`px-2.5 py-1.5 transition-colors ${activeSection === 'sobre' ? 'bg-[#282828] text-white' : 'hover:bg-[#282828] hover:text-white'}`}>A INOVA</a>
               <a href="#vets" onClick={(e) => handleItemClick(e, '#vets')} className={`px-2.5 py-1.5 transition-colors ${activeSection === 'vets' ? 'bg-[#282828] text-white' : 'hover:bg-[#282828] hover:text-white'}`}>VETS</a>
               <a href="#servicos" onClick={(e) => handleItemClick(e, '#servicos')} className="px-2.5 py-1.5 hover:bg-[#282828] hover:text-white transition-colors">SERVIÇOS</a>
               <a href="#especialidades" onClick={(e) => handleItemClick(e, '#especialidades')} className="px-2.5 py-1.5 hover:bg-[#282828] hover:text-white transition-colors">ESPECIALIDADES</a>
@@ -173,7 +188,9 @@ export const Navbar: React.FC<NavbarProps> = ({
               <a
                 key={item.label}
                 href={item.href}
-                onClick={(e) => handleItemClick(e, item.href)}
+                target={item.external ? '_blank' : undefined}
+                rel={item.external ? 'noopener noreferrer' : undefined}
+                onClick={(e) => handleItemClick(e, item)}
                 className="font-['Dosis',sans-serif] font-[300] text-base text-[#282828] hover:bg-[#282828] hover:text-white px-3 py-2 transition-colors uppercase border-b border-slate-100"
               >
                 {item.label}

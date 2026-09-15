@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, ExternalLink } from 'lucide-react';
 
-export const LocationSection: React.FC = () => {
+interface LocationSectionProps {
+  className?: string;
+  id?: string;
+}
+
+export const LocationSection: React.FC<LocationSectionProps> = ({
+  className,
+  id = 'contatos',
+}) => {
   const [selectedUnit, setSelectedUnit] = useState<'nogueira' | 'campolim'>('nogueira');
 
   const unitMapUrls = {
@@ -19,7 +27,7 @@ export const LocationSection: React.FC = () => {
   };
 
   return (
-    <section id="contatos" className="py-12 sm:py-16 lg:py-20 bg-[#FBFBFC]">
+    <section id={id} className={`py-12 sm:py-16 lg:py-20 ${className || 'bg-[#FBFBFC]'}`}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Card Container with large rounded corners matching attachment */}
         <div className="bg-white rounded-[2rem] sm:rounded-[2.5rem] shadow-[0_15px_45px_rgba(0,0,0,0.06)] border border-slate-100/90 overflow-hidden grid grid-cols-1 lg:grid-cols-12 items-stretch">
@@ -27,14 +35,14 @@ export const LocationSection: React.FC = () => {
           {/* Left Column: Information */}
           <div className="lg:col-span-6 p-6 sm:p-10 lg:p-12 flex flex-col justify-center">
             {/* Title */}
-            <h2 className="text-3xl sm:text-[34px] lg:text-4xl font-extrabold text-[#282828] tracking-tight mb-2.5">
+            <h2 className="text-3xl sm:text-[34px] lg:text-4xl font-extrabold text-[#282828] tracking-tight mb-2.5 [text-wrap:balance]">
               Em Sorocaba para você
             </h2>
 
             {/* Subtitle */}
-            <p className="text-sm sm:text-[15px] text-[#282828]/85 leading-relaxed mb-6 sm:mb-7">
+            <p className="text-sm sm:text-[15px] text-[#282828]/85 leading-relaxed mb-6 sm:mb-7 [text-wrap:balance]">
               Localização estratégica no coração de
-              <br className="hidden sm:inline" /> Sorocaba, com fácil acesso para toda a região.
+              <br className="hidden sm:inline" /> Sorocaba, com fácil acesso para toda a&nbsp;região.
             </p>
 
             {/* Box 1: Unidade Nogueira Padilha */}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Heart, BriefcaseMedical, ShieldCheck } from 'lucide-react';
+import { Phone, Heart, BriefcaseMedical, ShieldCheck, Calendar } from 'lucide-react';
 import { HeroSlideshow } from './HeroSlideshow';
 
 interface HeroProps {
@@ -36,7 +36,7 @@ export const Hero: React.FC<HeroProps> = ({
             {/* Subtitle */}
             <p
               id="hero-subtitle"
-              className="text-xl sm:text-2xl font-bold text-white mt-4 sm:mt-5"
+              className="text-xl sm:text-2xl font-bold text-white mt-4 sm:mt-5 [text-wrap:balance]"
             >
               Estamos aqui quando você precisar!
             </p>
@@ -44,7 +44,7 @@ export const Hero: React.FC<HeroProps> = ({
             {/* Secondary bold location badge/tagline */}
             <p
               id="hero-location-tagline"
-              className="text-base sm:text-lg lg:text-xl font-bold text-white mt-2.5"
+              className="text-base sm:text-lg lg:text-xl font-bold text-white mt-2.5 [text-wrap:balance]"
             >
               Hospital &amp; Clínica Veterinária 24h em Sorocaba.
             </p>
@@ -52,11 +52,11 @@ export const Hero: React.FC<HeroProps> = ({
             {/* Descriptive paragraph */}
             <p
               id="hero-description"
-              className="text-white/95 text-sm sm:text-base lg:text-[17px] mt-2 max-w-xl font-normal leading-relaxed"
+              className="text-white/95 text-sm sm:text-base lg:text-[17px] mt-2 max-w-xl font-normal leading-relaxed [text-wrap:balance]"
             >
               Equipe especializada, tecnologia avançada
               <br />
-              e o carinho que seu pet merece.
+              e o carinho que seu pet&nbsp;merece.
             </p>
 
             {/* 3 Pills: Carinho, Atenção, Segurança */}
@@ -125,8 +125,9 @@ export const Hero: React.FC<HeroProps> = ({
                 id="hero-btn-agendar"
                 type="button"
                 onClick={onOpenAppointment}
-                className="bg-[#FAAE00] hover:bg-[#e89f00] active:scale-95 text-[#282828] font-extrabold px-6 py-3.5 rounded-xl shadow-md flex items-center justify-center text-sm sm:text-base transition-all cursor-pointer"
+                className="bg-[#FAAE00] hover:bg-[#e89f00] active:scale-95 text-[#282828] font-extrabold px-6 py-3.5 rounded-xl shadow-md flex items-center justify-center gap-2 text-sm sm:text-base transition-all cursor-pointer"
               >
+                <Calendar className="w-4 h-4 text-[#282828]" />
                 <span>Agendar consulta</span>
               </button>
             </div>
