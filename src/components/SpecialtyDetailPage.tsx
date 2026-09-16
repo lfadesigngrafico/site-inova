@@ -184,14 +184,16 @@ export const SpecialtyDetailPage: React.FC<SpecialtyDetailPageProps> = ({
             {/* Visual Header Inside Card */}
             <div className="flex items-center gap-4 pb-6 mb-6 border-b border-slate-100">
               {specialty.icon ? (
-                <img
-                  src={specialty.icon}
-                  alt={specialty.title}
-                  className="w-16 h-16 sm:w-20 sm:h-20 object-contain p-2 rounded-xl bg-[#541E87]/5 border border-[#541E87]/15"
-                  referrerPolicy="no-referrer"
-                />
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-[#541E87]/5 border border-[#541E87]/15 flex items-center justify-center p-2.5 shrink-0">
+                  <img
+                    src={specialty.icon}
+                    alt={specialty.title}
+                    className="w-full h-full object-contain mix-blend-multiply"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
               ) : (
-                <div className="w-16 h-16 rounded-xl bg-[#541E87]/10 flex items-center justify-center text-[#541E87]">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-[#541E87]/10 flex items-center justify-center text-[#541E87] shrink-0">
                   <Stethoscope className="w-8 h-8" />
                 </div>
               )}
@@ -317,7 +319,7 @@ export const SpecialtyDetailPage: React.FC<SpecialtyDetailPageProps> = ({
                       <img
                         src={other.icon}
                         alt={other.title}
-                        className="w-full h-full object-contain filter group-hover:scale-105 transition-transform"
+                        className="w-full h-full object-contain filter group-hover:scale-105 transition-transform mix-blend-multiply"
                         referrerPolicy="no-referrer"
                       />
                     ) : (
@@ -332,8 +334,9 @@ export const SpecialtyDetailPage: React.FC<SpecialtyDetailPageProps> = ({
                   </p>
                 </div>
                 <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#541E87]">
-                  <span className="uppercase tracking-wider font-['Dosis',sans-serif]">Saiba mais</span>
-                  <ChevronRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform text-[#FAAE00]" />
+                  <span className="uppercase tracking-wider font-['Dosis',sans-serif] group-hover:text-[#A400EB] group-hover:translate-x-1 transition-all">
+                    VER DETALHES DA ESPECIALIDADE &gt;
+                  </span>
                 </div>
               </div>
             ))}

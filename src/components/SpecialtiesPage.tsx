@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import {
   ArrowLeft,
   Search,
-  ChevronRight,
   HeartPulse,
   Calendar,
   Clock,
@@ -156,7 +155,7 @@ export const SpecialtiesPage: React.FC<SpecialtiesPageProps> = ({
                         <img
                           src={specialty.icon}
                           alt={specialty.title}
-                          className="w-full h-full object-contain"
+                          className="w-full h-full object-contain mix-blend-multiply"
                           referrerPolicy="no-referrer"
                         />
                       ) : (
@@ -179,23 +178,17 @@ export const SpecialtiesPage: React.FC<SpecialtiesPageProps> = ({
                   </p>
                 </div>
 
-                {/* Card Footer with Saiba mais button in #FAAE00 */}
+                {/* Card Footer with clickable link to specialty subpage */}
                 <div className="px-6 sm:px-7 py-4 bg-slate-50/70 border-t border-slate-100 flex items-center justify-between group-hover:bg-purple-50/30 transition-colors">
-                  <span className="text-xs font-bold text-slate-700 group-hover:text-[#541E87] uppercase tracking-wider font-['Dosis',sans-serif]">
-                    Ver detalhes da especialidade
-                  </span>
-
-                  <button
-                    type="button"
+                  <span
                     onClick={(e) => {
                       e.stopPropagation();
                       onSelectSpecialty(specialty.id);
                     }}
-                    className="bg-[#FAAE00] group-hover:bg-[#e69f00] text-[#282828] font-bold text-xs px-3.5 py-1.5 rounded-lg shadow-xs flex items-center gap-1.5 transition-all uppercase tracking-wider cursor-pointer"
+                    className="inline-flex items-center gap-1 text-xs font-bold text-[#541E87] hover:text-[#A400EB] uppercase tracking-wider font-['Dosis',sans-serif] group-hover:translate-x-1 transition-all cursor-pointer"
                   >
-                    <span>Saiba mais</span>
-                    <ChevronRight className="w-3.5 h-3.5 transform group-hover:translate-x-0.5 transition-transform" />
-                  </button>
+                    VER DETALHES DA ESPECIALIDADE &gt;
+                  </span>
                 </div>
               </div>
             ))}

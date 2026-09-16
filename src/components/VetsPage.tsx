@@ -184,7 +184,8 @@ export const VetsPage: React.FC<VetsPageProps> = ({
               <div
                 key={vet.id}
                 id={`vet-card-${vet.id}`}
-                className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow border border-slate-200/80 overflow-hidden flex flex-col justify-between"
+                onClick={() => setSelectedVet(vet)}
+                className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow border border-slate-200/80 overflow-hidden flex flex-col justify-between group cursor-pointer"
               >
                 {/* Vet Image - dimensão quadrada, sem hover e sem corte da foto */}
                 <div className="relative bg-white overflow-hidden aspect-square flex items-center justify-center p-3 sm:p-4">
@@ -203,8 +204,8 @@ export const VetsPage: React.FC<VetsPageProps> = ({
 
                 {/* Card Content - Exibidas até o final do CRMV-SP */}
                 <div className="p-4 sm:p-5 flex flex-col flex-1 justify-between">
-                  <div className="flex flex-col mb-4">
-                    <h3 className="font-['Dosis',sans-serif] font-bold text-base sm:text-[17px] text-[#282828] uppercase leading-tight mb-1.5">
+                  <div className="flex flex-col">
+                    <h3 className="font-['Dosis',sans-serif] font-bold text-base sm:text-[17px] text-[#282828] group-hover:text-[#541E87] transition-colors uppercase leading-tight mb-1.5">
                       {vet.name}
                     </h3>
 
@@ -218,17 +219,20 @@ export const VetsPage: React.FC<VetsPageProps> = ({
                       {vet.crmv}
                     </div>
                   </div>
+                </div>
 
-                  {/* Botão "ver currículo" logo após o CRMV-SP */}
-                  <button
-                    type="button"
+                {/* Card Footer with discreet clickable link to curriculum matching services/specialties */}
+                <div className="px-4 sm:px-5 py-3.5 bg-slate-50/70 border-t border-slate-100 flex items-center justify-between group-hover:bg-purple-50/30 transition-colors">
+                  <span
                     id={`btn-curriculo-${vet.id}`}
-                    onClick={() => setSelectedVet(vet)}
-                    className="w-full bg-[#E5A823] hover:bg-[#d49918] active:scale-98 text-white font-bold text-xs sm:text-sm py-2.5 px-4 rounded-lg shadow-xs hover:shadow-sm transition-all cursor-pointer text-center flex items-center justify-center gap-1.5"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedVet(vet);
+                    }}
+                    className="inline-flex items-center gap-1 text-xs font-bold text-[#541E87] hover:text-[#A400EB] uppercase tracking-wider font-['Dosis',sans-serif] group-hover:translate-x-1 transition-all cursor-pointer"
                   >
-                    <GraduationCap className="w-4 h-4" />
-                    ver currículo
-                  </button>
+                    VER CURRÍCULO &gt;
+                  </span>
                 </div>
               </div>
             ))}
@@ -291,7 +295,7 @@ export const VetsPage: React.FC<VetsPageProps> = ({
                   src={selectedVet.image}
                   alt={selectedVet.name}
                   referrerPolicy="no-referrer"
-                  className="w-32 h-32 sm:w-36 sm:h-36 rounded-2xl object-contain bg-white border-2 border-slate-100 shadow-sm shrink-0 p-1"
+                  className="w-32 h-32 sm:w-36 sm:h-36 object-contain shrink-0"
                   onError={(e) => {
                     (e.target as HTMLImageElement).src =
                       'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=600';

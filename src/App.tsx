@@ -44,7 +44,10 @@ export default function App() {
     SERVICES_DATA.find((s) => s.id === selectedServiceId) || SERVICES_DATA[0];
 
   const currentSpecialty =
-    SPECIALTIES_DATA.find((s) => s.id === selectedSpecialtyId) || SPECIALTIES_DATA[0];
+    SPECIALTIES_DATA.find((s) => s.id === selectedSpecialtyId) ||
+    SPECIALTIES_DATA.find((s) => selectedSpecialtyId && (s.id.startsWith(selectedSpecialtyId) || selectedSpecialtyId.startsWith(s.id))) ||
+    SPECIALTIES_DATA.find((s) => s.title.toLowerCase() === (selectedSpecialtyId || '').toLowerCase()) ||
+    SPECIALTIES_DATA[0];
 
   const handleTopBarSearch = (term: string) => {
     setSearchQuery(term);
@@ -440,6 +443,11 @@ export default function App() {
               onOpenAppointment={handleOpenAppointment}
               onOpenBlogPage={() => {
                 setSelectedBlogPostId(null);
+                setCurrentView('blog');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              onSelectPost={(postId) => {
+                setSelectedBlogPostId(postId);
                 setCurrentView('blog');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}

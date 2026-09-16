@@ -401,8 +401,12 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                     WhatsApp *
                   </label>
                   <div className="relative flex items-center bg-slate-50 border border-slate-200 rounded-lg focus-within:bg-white focus-within:ring-2 focus-within:ring-[#541E87] focus-within:border-[#541E87] transition-all overflow-hidden">
-                    <div className="flex items-center gap-1 px-3 py-2.5 bg-slate-100 border-r border-slate-200 text-slate-700 select-none shrink-0 text-xs font-semibold">
-                      <span className="text-sm leading-none" role="img" aria-label="Brasil">🇧🇷</span>
+                    <div className="flex items-center gap-1.5 px-3 py-2.5 bg-slate-100 border-r border-slate-200 text-slate-700 select-none shrink-0 text-xs font-semibold">
+                      <svg className="w-4 h-3 rounded-[2px] shrink-0" viewBox="0 0 20 14" fill="none" aria-hidden="true">
+                        <rect width="20" height="14" fill="#009B3A" rx="1" />
+                        <polygon points="10,1.8 18.2,7 10,12.2 1.8,7" fill="#FEDF00" />
+                        <circle cx="10" cy="7" r="3.2" fill="#002776" />
+                      </svg>
                       <span className="text-slate-600">BR</span>
                       <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
                     </div>

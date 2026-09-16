@@ -113,6 +113,242 @@ export const BlogPage: React.FC<BlogPageProps> = ({
     window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
   };
 
+  // Dedicated Article Subpage View
+  if (selectedArticle) {
+    const recommendedPosts = ALL_BLOG_POSTS.filter((p) => p.id !== selectedArticle.id).slice(0, 4);
+
+    return (
+      <article className="bg-slate-50 min-h-screen text-[#282828] pb-16 animate-in fade-in duration-200">
+        {/* Breadcrumb Navigation Bar */}
+        <div className="bg-white border-b border-slate-200 sticky top-0 z-20 shadow-xs">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-wrap items-center justify-between gap-3">
+            <nav aria-label="Breadcrumb" className="flex items-center space-x-2 text-sm text-slate-500 font-['Dosis',sans-serif]">
+              <button
+                type="button"
+                onClick={onBackToHome}
+                className="hover:text-[#541E87] font-semibold transition-colors cursor-pointer"
+              >
+                Início
+              </button>
+              <span>/</span>
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedArticle(null);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className="hover:text-[#541E87] font-semibold transition-colors cursor-pointer"
+              >
+                Blog
+              </button>
+              <span>/</span>
+              <span className="text-[#541E87] font-bold line-clamp-1 max-w-[200px] sm:max-w-md">
+                {selectedArticle.title}
+              </span>
+            </nav>
+
+            <button
+              type="button"
+              onClick={() => {
+                setSelectedArticle(null);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#541E87] hover:text-[#A400EB] transition-colors cursor-pointer py-1.5 px-3 rounded-md hover:bg-purple-50"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Voltar para todos os artigos
+            </button>
+          </div>
+        </div>
+
+        {/* Subpage Article Layout */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
+            {/* Main Article Content (8 columns) */}
+            <main className="lg:col-span-8 bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-slate-200">
+              {/* Category tags */}
+              <div className="flex flex-wrap items-center gap-2 mb-4">
+                {selectedArticle.categories.map((cat, i) => (
+                  <span
+                    key={i}
+                    className="inline-flex items-center gap-1 text-xs font-bold text-[#541E87] bg-purple-50 px-3 py-1 rounded-full uppercase font-['Dosis',sans-serif] tracking-wider"
+                  >
+                    <Tag className="w-3 h-3" />
+                    {cat}
+                  </span>
+                ))}
+              </div>
+
+              {/* Meta information */}
+              <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm text-slate-500 mb-5">
+                <span className="flex items-center gap-1.5">
+                  <Calendar className="w-4 h-4 text-[#FAAE00]" />
+                  {selectedArticle.date}
+                </span>
+                <span>•</span>
+                <span className="flex items-center gap-1.5">
+                  <Clock className="w-4 h-4 text-[#FAAE00]" />
+                  {selectedArticle.readTime}
+                </span>
+              </div>
+
+              {/* Article Title */}
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#282828] leading-tight mb-6 font-['Dosis',sans-serif]">
+                {selectedArticle.title}
+              </h1>
+
+              {/* Social sharing bar */}
+              <div className="flex flex-wrap items-center justify-between gap-3 pb-6 mb-6 border-b border-slate-100">
+                <div className="flex items-center gap-2.5">
+                  <button
+                    type="button"
+                    onClick={() => handleShareWhatsApp(selectedArticle)}
+                    className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 px-4 py-2 rounded-xl transition-all cursor-pointer shadow-xs"
+                  >
+                    <WhatsAppIcon className="w-4 h-4" />
+                    Compartilhar no WhatsApp
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleCopyLink}
+                    className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 px-4 py-2 rounded-xl transition-all cursor-pointer"
+                  >
+                    {copiedLink ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
+                    {copiedLink ? 'Link copiado!' : 'Copiar link'}
+                  </button>
+                </div>
+              </div>
+
+              {/* Cover Image High Res */}
+              <div className="rounded-2xl overflow-hidden border border-slate-100 bg-slate-100 shadow-xs aspect-16/10 mb-8">
+                <img
+                  src={selectedArticle.image}
+                  alt={selectedArticle.title}
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Medical Review Badge */}
+              <div className="bg-purple-50 border-l-4 border-[#541E87] p-5 rounded-r-2xl mb-8">
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-[#541E87] flex-shrink-0 mt-0.5" />
+                  <p className="text-xs sm:text-sm text-[#541E87] leading-relaxed font-medium">
+                    {selectedArticle.authorReview ||
+                      'Conteúdo revisado pela equipe médica da Inova Hospital Veterinário 24h, composta por médicos-veterinários com formação em clínica geral, vacinação e cuidados preventivos.'}
+                  </p>
+                </div>
+              </div>
+
+              {/* Article Content Paragraphs */}
+              <div className="space-y-5 text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
+                {selectedArticle.content.map((paragraph, idx) => (
+                  <p key={idx}>{paragraph}</p>
+                ))}
+              </div>
+
+              {/* Veterinary Medical Warning & CTA */}
+              <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6 mt-10">
+                <h4 className="font-bold text-[#282828] text-base sm:text-lg mb-2 flex items-center gap-2">
+                  <AlertCircle className="w-5 h-5 text-[#FAAE00]" />
+                  Seu pet apresenta algum destes sintomas?
+                </h4>
+                <p className="text-sm text-slate-700 mb-5 leading-relaxed">
+                  Não medique seu animal sem orientação médica. O Inova Hospital Veterinário 24h está aberto 24 horas todos os dias com equipe de especialistas e exames no local.
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <button
+                    type="button"
+                    onClick={onOpenEmergency}
+                    className="bg-[#541E87] hover:bg-[#A400EB] text-white font-bold text-xs sm:text-sm px-5 py-3 rounded-xl transition-all cursor-pointer shadow-sm hover:shadow"
+                  >
+                    Falar com Plantão 24h
+                  </button>
+                  <button
+                    type="button"
+                    onClick={onOpenAppointment}
+                    className="bg-[#FAAE00] hover:bg-[#e69f00] text-[#282828] font-bold text-xs sm:text-sm px-5 py-3 rounded-xl transition-all cursor-pointer shadow-sm hover:shadow"
+                  >
+                    Agendar Avaliação
+                  </button>
+                </div>
+              </div>
+
+              {/* Bottom Back Button */}
+              <div className="pt-8 mt-10 border-t border-slate-200 flex items-center justify-between">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSelectedArticle(null);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  className="text-sm font-bold text-[#541E87] hover:text-[#A400EB] flex items-center gap-2 transition-colors cursor-pointer"
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                  Voltar para todos os artigos do Blog
+                </button>
+              </div>
+            </main>
+
+            {/* Sidebar (4 columns) */}
+            <aside className="lg:col-span-4 space-y-6">
+              {/* Emergency Plantão Card */}
+              <div className="bg-gradient-to-br from-[#541E87] to-[#7B1FA2] rounded-3xl p-6 text-white shadow-lg">
+                <h3 className="text-xl font-bold font-['Dosis',sans-serif] mb-2 uppercase">
+                  Plantão 24 Horas
+                </h3>
+                <p className="text-white/85 text-xs sm:text-sm mb-4">
+                  Pronto atendimento e UTI veterinária para emergências em qualquer dia e horário em Sorocaba.
+                </p>
+                <button
+                  type="button"
+                  onClick={onOpenEmergency}
+                  className="w-full bg-[#FAAE00] hover:bg-[#e69f00] text-[#282828] font-bold text-xs sm:text-sm py-3 rounded-xl transition-all cursor-pointer shadow-sm hover:shadow"
+                >
+                  Acionar Emergência
+                </button>
+              </div>
+
+              {/* Recommended Articles */}
+              <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-xs">
+                <h3 className="font-['Dosis',sans-serif] font-bold text-lg text-[#282828] mb-4 uppercase">
+                  Artigos Recomendados
+                </h3>
+                <div className="space-y-4">
+                  {recommendedPosts.map((post) => (
+                    <div
+                      key={post.id}
+                      onClick={() => {
+                        setSelectedArticle(post);
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }}
+                      className="group flex gap-3 cursor-pointer items-start pb-4 border-b border-slate-100 last:border-b-0 last:pb-0"
+                    >
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        className="w-16 h-16 rounded-xl object-cover flex-shrink-0"
+                        referrerPolicy="no-referrer"
+                      />
+                      <div>
+                        <span className="text-[11px] font-semibold text-[#FAAE00] block mb-0.5">
+                          {post.date}
+                        </span>
+                        <h4 className="text-xs sm:text-sm font-bold text-[#282828] group-hover:text-[#541E87] transition-colors line-clamp-2 leading-snug">
+                          {post.title}
+                        </h4>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </article>
+    );
+  }
+
   return (
     <div className="bg-slate-50 min-h-screen text-[#282828] pb-16">
       {/* Breadcrumbs & Return Bar */}
@@ -287,7 +523,10 @@ export const BlogPage: React.FC<BlogPageProps> = ({
                   {/* Thumbnail / Cover Image with hover zoom */}
                   <div
                     className="relative aspect-16/10 overflow-hidden bg-slate-100 cursor-pointer"
-                    onClick={() => setSelectedArticle(post)}
+                    onClick={() => {
+                      setSelectedArticle(post);
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
                   >
                     <img
                       src={post.image}
@@ -328,7 +567,10 @@ export const BlogPage: React.FC<BlogPageProps> = ({
 
                       {/* Post Title */}
                       <h2
-                        onClick={() => setSelectedArticle(post)}
+                        onClick={() => {
+                          setSelectedArticle(post);
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}
                         className="font-bold text-[#282828] text-base sm:text-lg leading-snug group-hover:text-[#541E87] transition-colors cursor-pointer mb-2.5 line-clamp-2"
                       >
                         {post.title}
@@ -344,7 +586,10 @@ export const BlogPage: React.FC<BlogPageProps> = ({
                     <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
                       <button
                         type="button"
-                        onClick={() => setSelectedArticle(post)}
+                        onClick={() => {
+                          setSelectedArticle(post);
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}
                         className="inline-flex items-center text-xs sm:text-sm font-bold text-[#541E87] hover:text-[#A400EB] transition-colors cursor-pointer group-hover:translate-x-0.5 duration-150"
                       >
                         Leia Mais »
@@ -487,155 +732,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
         </div>
       </div>
 
-      {/* Article Detail Reader Modal */}
-      {selectedArticle && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 md:p-6 bg-black/60 backdrop-blur-xs overflow-y-auto animate-in fade-in duration-200"
-          onClick={() => setSelectedArticle(null)}
-        >
-          <div
-            className="bg-white w-full max-w-3xl rounded-2xl shadow-2xl overflow-hidden my-6 max-h-[90vh] flex flex-col"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Modal Header Bar */}
-            <div className="px-6 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50 flex-shrink-0">
-              <div className="flex items-center gap-2 text-xs font-semibold text-[#541E87] uppercase font-['Dosis',sans-serif]">
-                <Tag className="w-3.5 h-3.5" />
-                {selectedArticle.categories.join(' • ')}
-              </div>
 
-              <div className="flex items-center gap-2">
-                <button
-                  type="button"
-                  onClick={handleCopyLink}
-                  className="p-2 text-slate-500 hover:text-[#541E87] rounded-full hover:bg-slate-200 transition-colors cursor-pointer"
-                  title="Copiar link do artigo"
-                >
-                  {copiedLink ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleShareWhatsApp(selectedArticle)}
-                  className="p-2 text-slate-500 hover:text-emerald-600 rounded-full hover:bg-slate-200 transition-colors cursor-pointer"
-                  title="Compartilhar no WhatsApp"
-                >
-                  <WhatsAppIcon className="w-4 h-4" />
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setSelectedArticle(null)}
-                  className="p-2 text-slate-400 hover:text-slate-700 rounded-full hover:bg-slate-200 transition-colors cursor-pointer ml-1"
-                  aria-label="Fechar artigo"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-            </div>
-
-            {/* Modal Scrollable Body */}
-            <div className="p-6 sm:p-8 overflow-y-auto flex-1 space-y-6">
-              {/* Meta information */}
-              <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm text-slate-500">
-                <span className="flex items-center gap-1.5">
-                  <Calendar className="w-4 h-4 text-[#FAAE00]" />
-                  {selectedArticle.date}
-                </span>
-                <span>•</span>
-                <span className="flex items-center gap-1.5">
-                  <Clock className="w-4 h-4 text-[#FAAE00]" />
-                  {selectedArticle.readTime}
-                </span>
-              </div>
-
-              {/* Title */}
-              <h1 className="text-2xl sm:text-3xl font-extrabold text-[#282828] leading-tight font-['Dosis',sans-serif]">
-                {selectedArticle.title}
-              </h1>
-
-              {/* Cover Image High Res */}
-              <div className="rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-xs aspect-16/10">
-                <img
-                  src={selectedArticle.image}
-                  alt={selectedArticle.title}
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              {/* Medical Review Badge matching Inova's standard */}
-              <div className="bg-purple-50 border-l-4 border-[#541E87] p-4 rounded-r-xl">
-                <div className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-5 h-5 text-[#541E87] flex-shrink-0 mt-0.5" />
-                  <p className="text-xs sm:text-sm text-[#541E87] leading-relaxed font-medium">
-                    {selectedArticle.authorReview ||
-                      'Conteúdo revisado pela equipe médica da Inova Hospital Veterinário 24h, composta por médicos-veterinários com formação em clínica geral, vacinação e cuidados preventivos.'}
-                  </p>
-                </div>
-              </div>
-
-              {/* Article Content Paragraphs */}
-              <div className="space-y-4 text-sm sm:text-base text-slate-700 leading-relaxed">
-                {selectedArticle.content.map((paragraph, idx) => (
-                  <p key={idx}>{paragraph}</p>
-                ))}
-              </div>
-
-              {/* Veterinary Medical Warning & CTA */}
-              <div className="bg-amber-50 border border-amber-200 rounded-xl p-5 mt-6">
-                <h4 className="font-bold text-[#282828] text-sm sm:text-base mb-1.5 flex items-center gap-2">
-                  <AlertCircle className="w-5 h-5 text-[#FAAE00]" />
-                  Seu pet apresenta algum destes sintomas?
-                </h4>
-                <p className="text-xs sm:text-sm text-slate-700 mb-4 leading-relaxed">
-                  Não medique seu animal sem orientação médica. O Inova Hospital Veterinário 24h está aberto 24 horas todos os dias com equipe de especialistas e exames no local.
-                </p>
-                <div className="flex flex-wrap gap-3">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setSelectedArticle(null);
-                      onOpenEmergency();
-                    }}
-                    className="bg-[#541E87] hover:bg-[#A400EB] text-white font-bold text-xs sm:text-sm px-4 py-2.5 rounded-lg transition-colors cursor-pointer"
-                  >
-                    Falar com Plantão 24h
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setSelectedArticle(null);
-                      onOpenAppointment();
-                    }}
-                    className="bg-[#FAAE00] hover:bg-[#e69f00] text-[#282828] font-bold text-xs sm:text-sm px-4 py-2.5 rounded-lg transition-colors cursor-pointer"
-                  >
-                    Agendar Avaliação
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Modal Footer */}
-            <div className="px-6 py-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between flex-shrink-0">
-              <button
-                type="button"
-                onClick={() => setSelectedArticle(null)}
-                className="text-xs sm:text-sm font-semibold text-slate-600 hover:text-[#282828]"
-              >
-                ← Voltar para a lista do Blog
-              </button>
-
-              <button
-                type="button"
-                onClick={() => handleShareWhatsApp(selectedArticle)}
-                className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 px-3 py-1.5 rounded-lg transition-colors"
-              >
-                <WhatsAppIcon className="w-4 h-4" />
-                Compartilhar no WhatsApp
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

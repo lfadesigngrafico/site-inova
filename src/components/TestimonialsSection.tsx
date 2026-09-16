@@ -100,7 +100,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Left Column: Heading & Description */}
           <div className="lg:col-span-5 text-left">
-            <h2 className="font-['Dosis',sans-serif] font-bold text-3xl sm:text-4xl md:text-5xl text-white mb-4 tracking-tight [text-wrap:balance]">
+            <h2 className="font-['Montserrat',sans-serif] font-extrabold text-3xl sm:text-4xl md:text-5xl text-white mb-4 tracking-tight [text-wrap:balance]">
               Depoimentos
             </h2>
             <p className="text-white/85 text-sm sm:text-base leading-relaxed max-w-md font-normal [text-wrap:balance]">

@@ -1,72 +1,33 @@
 import React, { useState } from 'react';
 import { X, Calendar, ArrowRight, BookOpen, Clock } from 'lucide-react';
+import { ALL_BLOG_POSTS, BlogPostItem } from '../data/blogPosts';
 
 interface BlogSectionProps {
   onOpenAppointment?: () => void;
   onOpenBlogPage?: () => void;
-}
-
-interface BlogPost {
-  id: string;
-  title: string;
-  date: string;
-  excerpt: string;
-  image: string;
-  readTime: string;
-  content: string[];
+  onSelectPost?: (postId: string) => void;
 }
 
 export const BlogSection: React.FC<BlogSectionProps> = ({
   onOpenAppointment,
   onOpenBlogPage,
+  onSelectPost,
 }) => {
-  const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
+  const [selectedPost, setSelectedPost] = useState<BlogPostItem | null>(null);
   const [allPostsModalOpen, setAllPostsModalOpen] = useState(false);
 
-  const BLOG_POSTS: BlogPost[] = [
-    {
-      id: 'cachorro-corrida',
-      title: 'Cachorro de corrida: raças, características e cuidados necessários',
-      date: '27 de maio de 2025',
-      readTime: '4 min de leitura',
-      excerpt:
-        'Cachorro de corrida é aquele que possui estrutura física e comportamento voltados para alta velocidade, resistência atlética e agilidade...',
-      image: '/images/blog/cachorro-corrida.jpg',
-      content: [
-        'Cães de corrida, como o Greyhound, Whippet, Galgo Espanhol e Saluki, destacam-se por sua anatomia aerodinâmica, coração potente e musculatura esguia e desenvolvida.',
-        'No entanto, animais atletas necessitam de acompanhamento veterinário ortopédico e cardiológico rigoroso. A alimentação deve ser balanceada e rica em nutrientes específicos para proteger articulações e tendões.',
-        'Além disso, é fundamental realizar aquecimento gradual, monitorar a temperatura corporal (especialmente em dias quentes) e manter as vacinas e exames preventivos sempre em dia.',
-      ],
-    },
-    {
-      id: 'papilomatose-canina',
-      title: 'Papilomatose canina: o que é, causas, prevenção e tratamento',
-      date: '20 de maio de 2025',
-      readTime: '5 min de leitura',
-      excerpt:
-        'A papilomatose canina é uma infecção viral contagiosa entre cães, causada pelo papilomavírus canino, que provoca o surgimento de verrugas...',
-      image: '/images/blog/papilomatose-canina.jpg',
-      content: [
-        'A papilomatose canina é provocada pelo papilomavírus canino (CPV-1), manifestando-se frequentemente na cavidade oral, lábios, gengivas e mucosas de filhotes e cães jovens.',
-        'O contágio ocorre através do contato direto com outros pets infectados ou objetos compartilhados, como brinquedos e tigelas de água em parques ou creches.',
-        'O diagnóstico deve ser feito por um médico veterinário. Em muitos casos, o sistema imunológico combate o vírus com o tempo, mas intervenções clínicas, cauterizações ou uso de imunoestimulantes podem ser necessários se houver desconforto para se alimentar.',
-      ],
-    },
-    {
-      id: 'berne-em-cachorro',
-      title: 'Berne em cachorro: o que é, sintomas, tratamento e prevenção',
-      date: '13 de maio de 2025',
-      readTime: '4 min de leitura',
-      excerpt:
-        'A berne é uma infestação causada por larvas da mosca Dermatobia hominis, que se alojam sob a pele do pet e provocam dor e inflamação...',
-      image: '/images/blog/berne-em-cachorro.jpg',
-      content: [
-        'A miíase forunculóide (popularmente chamada de berne) surge quando a larva da mosca se desenvolve no tecido subcutâneo do cão, formando um nódulo avermelhado com um orifício central por onde a larva respira.',
-        'Os sinais incluem lambedura constante do local, inquietação, dor ao toque, secreção serossanguinolenta e inchaço visível.',
-        'Nunca tente espremer a berne de forma caseira, pois a ruptura da larva pode causar choque anafilático ou infecções bacterianas graves. O procedimento de extração e a prescrição de antiparasitários orais ou tópicos devem ser conduzidos exclusivamente por um veterinário.',
-      ],
-    },
-  ];
+  // Latest 3 blog posts from official blog catalog
+  const blogPosts = ALL_BLOG_POSTS.slice(0, 3);
+
+  const handlePostClick = (post: BlogPostItem) => {
+    if (onSelectPost) {
+      onSelectPost(post.id);
+    } else if (onOpenBlogPage) {
+      onOpenBlogPage();
+    } else {
+      setSelectedPost(post);
+    }
+  };
 
   const EXTRA_POSTS = [
     {
@@ -112,11 +73,11 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
 
         {/* 3 Cards Grid - Straddling the purple gradient and white background */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-7">
-          {BLOG_POSTS.map((post) => (
+          {blogPosts.map((post) => (
             <article
               key={post.id}
               id={`blog-card-${post.id}`}
-              onClick={() => setSelectedPost(post)}
+              onClick={() => handlePostClick(post)}
               className="bg-white rounded-3xl overflow-hidden shadow-[0_12px_32px_rgba(0,0,0,0.12)] border border-slate-100 flex flex-col group transition-all duration-300 hover:shadow-[0_20px_40px_rgba(0,0,0,0.16)] hover:-translate-y-1.5 cursor-pointer"
             >
               {/* Card Image */}
@@ -290,12 +251,12 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
             </p>
 
             <div className="space-y-3 mb-6">
-              {BLOG_POSTS.map((post) => (
+              {ALL_BLOG_POSTS.slice(0, 5).map((post) => (
                 <div
                   key={post.id}
                   onClick={() => {
                     setAllPostsModalOpen(false);
-                    setSelectedPost(post);
+                    handlePostClick(post);
                   }}
                   className="p-4 rounded-2xl border border-slate-100 hover:border-[#E5A823] hover:bg-[#FEFBF2]/30 transition-all cursor-pointer flex items-center justify-between gap-4"
                 >

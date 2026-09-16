@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Calendar, Award } from 'lucide-react';
+import { X } from 'lucide-react';
 
 interface TeamSectionProps {
   onOpenAppointment: () => void;
@@ -20,7 +20,6 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
   onOpenAppointment,
   onOpenVetsPage,
 }) => {
-  const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
   const [allTeamModalOpen, setAllTeamModalOpen] = useState(false);
 
   const TEAM_MEMBERS: TeamMember[] = [
@@ -29,7 +28,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
       name: 'Dra. Caroline Estanislau',
       specialty: 'Clínica Geral',
       experience: '8 anos de experiência',
-      image: 'https://d335luupugsy2.cloudfront.net/cms/files/147009/1788886402/$nrhxhbhg8zp',
+      image: 'https://d335luupugsy2.cloudfront.net/cms/files/38500/1789580853/$666ef82rftb',
       crmv: 'CRMV-SP 34.892',
       bio: 'Especialista em clínica médica de pequenos animais, com foco em medicina preventiva, check-ups completos e bem-estar canino e felino.',
     },
@@ -38,7 +37,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
       name: 'Dra. Cristiane Estanislau',
       specialty: 'Oftalmologia, Clínica e Cirurgia',
       experience: '8 anos de experiência',
-      image: 'https://d335luupugsy2.cloudfront.net/cms/files/147009/1788886402/$hyrqf87op1',
+      image: 'https://d335luupugsy2.cloudfront.net/cms/files/38500/1789580853/$y6ikck8mcui',
       crmv: 'CRMV-SP 34.891',
       bio: 'Cirurgiã e oftalmologista veterinária, especializada em microcirurgias oculares, tratamento de catarata e preservação da visão de cães e gatos.',
     },
@@ -47,7 +46,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
       name: 'Dr. Felipe Zanuzzo',
       specialty: 'Anestesiologia e Intensivismo',
       experience: '8 anos de experiência',
-      image: 'https://d335luupugsy2.cloudfront.net/cms/files/147009/1788886402/$sigbh0f07z',
+      image: 'https://d335luupugsy2.cloudfront.net/cms/files/38500/1789580853/$h0vonsd1o9m',
       crmv: 'CRMV-SP 31.420',
       bio: 'Responsável pelos protocolos anestésicos avançados e UTI veterinária, garantindo segurança cirúrgica e monitorização hemodinâmica contínua.',
     },
@@ -56,7 +55,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
       name: 'Dra. Marina Char',
       specialty: 'Endoscopia',
       experience: '8 anos de experiência',
-      image: 'https://d335luupugsy2.cloudfront.net/cms/files/147009/1788886402/$x1g104i7kp',
+      image: 'https://d335luupugsy2.cloudfront.net/cms/files/38500/1789580853/$eyg52e7mj2j',
       crmv: 'CRMV-SP 36.115',
       bio: 'Especialista em exames endoscópicos diagnósticos e terapêuticos, remoção minimamente invasiva de corpos estranhos e biópsias gastrointestinais.',
     },
@@ -128,8 +127,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
             <div
               key={member.id}
               id={`vet-card-${member.id}`}
-              onClick={() => setSelectedMember(member)}
-              className="bg-white rounded-3xl overflow-hidden shadow-[0_12px_32px_rgba(0,0,0,0.12)] border border-slate-100 flex flex-col group transition-all duration-300 hover:shadow-[0_20px_40px_rgba(0,0,0,0.16)] hover:-translate-y-1.5 cursor-pointer"
+              className="bg-white rounded-3xl overflow-hidden shadow-[0_12px_32px_rgba(0,0,0,0.12)] border border-slate-100 flex flex-col group transition-all duration-300 hover:shadow-[0_20px_40px_rgba(0,0,0,0.16)]"
             >
               {/* Photo */}
               <div className="w-full aspect-[1/1] overflow-hidden bg-slate-50 relative">
@@ -138,6 +136,18 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
                   alt={member.name}
                   className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
                   referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    if (member.id === 'caroline-estanislau') {
+                      target.src = 'https://inovaveterinaria.com.br/wp-content/uploads/2023/12/Caroline-Estanislau.png';
+                    } else if (member.id === 'cristiane-estanislau') {
+                      target.src = 'https://inovaveterinaria.com.br/wp-content/uploads/2023/12/Cristiane-Estanislau.png';
+                    } else if (member.id === 'felipe-zanuzzo') {
+                      target.src = 'https://inovaveterinaria.com.br/wp-content/uploads/2023/12/Felipe-Zanuzzo.png';
+                    } else if (member.id === 'marina-char') {
+                      target.src = 'https://inovaveterinaria.com.br/wp-content/uploads/2023/12/Marina-Char.png';
+                    }
+                  }}
                 />
               </div>
 
@@ -181,86 +191,6 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
           </button>
         </div>
       </div>
-
-      {/* Member Details Modal */}
-      {selectedMember && (
-        <div
-          id="vet-detail-modal"
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-in fade-in duration-200"
-          onClick={() => setSelectedMember(null)}
-        >
-          <div
-            className="bg-white rounded-3xl max-w-md w-full p-6 sm:p-7 shadow-2xl border border-slate-100 relative"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              type="button"
-              onClick={() => setSelectedMember(null)}
-              className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-1.5 rounded-full hover:bg-slate-100"
-              aria-label="Fechar"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            <div className="flex flex-col items-center text-center mb-5">
-              <div className="w-24 h-24 rounded-full overflow-hidden mb-3 border-2 border-[#E5A823] shadow-md">
-                <img
-                  src={selectedMember.image}
-                  alt={selectedMember.name}
-                  className="w-full h-full object-cover object-top"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-
-              <h3 className="text-xl font-bold text-[#282828] mb-1">
-                {selectedMember.name}
-              </h3>
-
-              <div className="bg-[#FDF3D6] text-[#B78103] font-semibold text-xs px-3 py-1 rounded-sm mb-1.5">
-                {selectedMember.specialty}
-              </div>
-
-              {selectedMember.crmv && (
-                <span className="text-xs text-slate-500 font-medium">
-                  {selectedMember.crmv}
-                </span>
-              )}
-            </div>
-
-            {selectedMember.bio && (
-              <p className="text-sm text-slate-600 leading-relaxed text-center mb-6">
-                {selectedMember.bio}
-              </p>
-            )}
-
-            <div className="bg-slate-50 rounded-xl p-3.5 mb-6 flex items-center justify-center gap-2 text-xs font-semibold text-[#282828]">
-              <Award className="w-4 h-4 text-[#E5A823]" />
-              <span>{selectedMember.experience} em medicina veterinária</span>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-2.5">
-              <button
-                type="button"
-                onClick={() => {
-                  setSelectedMember(null);
-                  onOpenAppointment();
-                }}
-                className="flex-1 bg-[#FAAE00] hover:bg-[#e09d00] text-[#282828] font-bold text-center py-3 rounded-xl text-sm transition-colors cursor-pointer flex items-center justify-center gap-2"
-              >
-                <Calendar className="w-4 h-4" />
-                <span>Agendar com {selectedMember.name.split(' ')[0]}</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => setSelectedMember(null)}
-                className="px-5 py-3 border border-slate-200 hover:bg-slate-50 text-slate-700 font-semibold rounded-xl text-sm transition-colors cursor-pointer"
-              >
-                Fechar
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Full Team Modal */}
       {allTeamModalOpen && (
