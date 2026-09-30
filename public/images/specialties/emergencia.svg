@@ -1,9 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
-  <rect width="100" height="100" rx="20" fill="#F4EBFB" opacity="0.6"/>
-  <!-- Siren base / alert shield -->
-  <path d="M50 16 L82 30 V54 C82 72 68 84 50 88 C32 84 18 72 18 54 V30 L50 16 Z" fill="#541E87" fill-opacity="0.1" stroke="#541E87" stroke-width="4" stroke-linejoin="round"/>
-  <!-- Medical Cross -->
-  <path d="M43 32 H57 V43 H68 V57 H57 V68 H43 V57 H32 V43 H43 V32 Z" fill="#FAAE00" stroke="#541E87" stroke-width="2.5" stroke-linejoin="round"/>
-  <!-- Dynamic Pulse line cutting through center -->
-  <path d="M22 50 H36 L42 38 L48 62 L54 44 L58 54 L62 50 H78" stroke="#541E87" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Circular purple border around icon, without fill -->
+  <circle cx="50" cy="50" r="46" stroke="#541E87" stroke-width="2.5" fill="none"/>
+  
+  <g transform="translate(50, 50) scale(0.8) translate(-50, -50)">
+    <!-- Alert / Protection Shield -->
+    <path d="M50 16 L82 30 V54 C82 72 68 84 50 88 C32 84 18 72 18 54 V30 L50 16 Z" fill="#9B51E0" fill-opacity="0.14" stroke="#541E87" stroke-width="4" stroke-linejoin="round"/>
+    <!-- Medical Cross in vibrant purple tone -->
+    <path d="M43 32 H57 V43 H68 V57 H57 V68 H43 V57 H32 V43 H43 V32 Z" fill="#7B2CBF" stroke="#541E87" stroke-width="2.5" stroke-linejoin="round"/>
+    <!-- Dynamic Pulse / Heartbeat line cutting through center in bright purple -->
+    <path d="M22 50 H36 L42 38 L48 62 L54 44 L58 54 L62 50 H78" stroke="#C084FC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
 </svg>

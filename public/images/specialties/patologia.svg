@@ -1,19 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
-  <rect width="100" height="100" rx="20" fill="#F4EBFB" opacity="0.6"/>
-  <!-- Base of microscope -->
-  <path d="M22 84 H78" stroke="#541E87" stroke-width="4.5" stroke-linecap="round"/>
-  <path d="M28 84 C28 76 34 72 42 72 H52" stroke="#541E87" stroke-width="4" stroke-linecap="round"/>
-  <!-- Stage plate -->
-  <path d="M38 58 H64" stroke="#FAAE00" stroke-width="4" stroke-linecap="round"/>
-  <rect x="44" y="55" width="14" height="3" rx="1.5" fill="#541E87"/>
-  <!-- Arm & Head -->
-  <path d="M42 72 C32 72 26 62 26 50 C26 36 34 26 48 24" stroke="#541E87" stroke-width="4" stroke-linecap="round"/>
-  <!-- Eyepiece tube & lens -->
-  <g transform="rotate(-30 54 36)">
-    <rect x="46" y="16" width="16" height="28" rx="3" fill="#541E87" fill-opacity="0.15" stroke="#541E87" stroke-width="3.5"/>
-    <rect x="49" y="10" width="10" height="8" rx="2" fill="#541E87"/>
-    <path d="M48 44 L54 52 L60 44 Z" fill="#FAAE00"/>
+  <!-- Circular purple border around icon, without fill -->
+  <circle cx="50" cy="50" r="46" stroke="#541E87" stroke-width="2.5" fill="none"/>
+  
+  <g transform="translate(50, 50) scale(0.8) translate(-50, -50)">
+    <!-- Base of microscope -->
+    <path d="M22 84 H78" stroke="#541E87" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M28 84 C28 76 34 72 42 72 H52" stroke="#541E87" stroke-width="4" stroke-linecap="round"/>
+    <!-- Stage plate in medium purple tone -->
+    <path d="M38 58 H64" stroke="#9B51E0" stroke-width="4" stroke-linecap="round"/>
+    <rect x="44" y="55" width="14" height="3" rx="1.5" fill="#541E87"/>
+    <!-- Arm & Head -->
+    <path d="M42 72 C32 72 26 62 26 50 C26 36 34 26 48 24" stroke="#541E87" stroke-width="4" stroke-linecap="round"/>
+    <!-- Eyepiece tube & lens -->
+    <g transform="rotate(-30 54 36)">
+      <rect x="46" y="16" width="16" height="28" rx="3" fill="#7B2CBF" fill-opacity="0.2" stroke="#541E87" stroke-width="3.5"/>
+      <rect x="49" y="10" width="10" height="8" rx="2" fill="#541E87"/>
+      <path d="M48 44 L54 52 L60 44 Z" fill="#9B51E0"/>
+    </g>
+    <!-- Adjustment knob in soft purple with deep purple border -->
+    <circle cx="34" cy="50" r="5" fill="#C084FC" stroke="#541E87" stroke-width="2.5"/>
   </g>
-  <!-- Adjustment knob -->
-  <circle cx="34" cy="50" r="5" fill="#FAAE00" stroke="#541E87" stroke-width="2.5"/>
 </svg>

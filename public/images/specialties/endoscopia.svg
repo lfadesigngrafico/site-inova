@@ -1,17 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
-  <rect width="100" height="100" rx="20" fill="#F4EBFB" opacity="0.6"/>
-  <!-- Curved flexible endoscope tube -->
-  <path d="M22 28 C36 28 40 46 54 48 C68 50 78 38 78 26" stroke="#541E87" stroke-width="4.5" stroke-linecap="round"/>
-  <!-- Lower flexible loop heading towards camera tip -->
-  <path d="M22 28 C16 40 18 64 32 74 C46 84 62 82 70 70" stroke="#541E87" stroke-width="4.5" stroke-linecap="round"/>
-  <!-- Endoscope tip with camera and optic ring -->
-  <g transform="translate(68, 62) rotate(45)">
-    <rect x="-4" y="-8" width="8" height="16" rx="3" fill="#FAAE00" stroke="#541E87" stroke-width="2.5"/>
-    <!-- Light beam from lens -->
-    <path d="M-8 8 L-14 20 H14 L8 8 Z" fill="#FAAE00" fill-opacity="0.35"/>
-    <circle cx="0" cy="8" r="2.5" fill="#541E87"/>
+  <!-- Circular purple border around icon, without fill -->
+  <circle cx="50" cy="50" r="46" stroke="#541E87" stroke-width="2.5" fill="none"/>
+  
+  <g transform="translate(50, 50) scale(0.8) translate(-50, -50)">
+    <!-- Curved flexible endoscope tube -->
+    <path d="M22 28 C36 28 40 46 54 48 C68 50 78 38 78 26" stroke="#541E87" stroke-width="4.5" stroke-linecap="round"/>
+    <!-- Lower flexible loop heading towards camera tip -->
+    <path d="M22 28 C16 40 18 64 32 74 C46 84 62 82 70 70" stroke="#7B2CBF" stroke-width="4.5" stroke-linecap="round"/>
+    <!-- Endoscope tip with camera and optic ring -->
+    <g transform="translate(68, 62) rotate(45)">
+      <!-- Camera head in medium purple -->
+      <rect x="-4" y="-8" width="8" height="16" rx="3" fill="#9B51E0" stroke="#541E87" stroke-width="2.5"/>
+      <!-- Light beam from lens in light purple -->
+      <path d="M-8 8 L-14 20 H14 L8 8 Z" fill="#C084FC" fill-opacity="0.45"/>
+      <!-- Camera lens aperture in deep purple -->
+      <circle cx="0" cy="8" r="2.5" fill="#541E87"/>
+    </g>
+    <!-- Handle controller at top -->
+    <rect x="74" y="16" width="10" height="18" rx="3" fill="#541E87"/>
+    <circle cx="79" cy="22" r="2" fill="#D8B4FE"/>
   </g>
-  <!-- Handle controller at top -->
-  <rect x="74" y="16" width="10" height="18" rx="3" fill="#541E87"/>
-  <circle cx="79" cy="22" r="2" fill="#FAAE00"/>
 </svg>
