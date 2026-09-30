@@ -22,7 +22,7 @@ export const EmergencyModal: React.FC<EmergencyModalProps> = ({ isOpen, onClose 
             <AlertTriangle className="w-6 h-6 text-[#FAAE00]" />
             <div>
               <h3 className="font-black text-lg">Pronto Atendimento e Emergência 24h</h3>
-              <p className="text-xs text-white/90">Hospital Veterinário Inova – Sorocaba/SP</p>
+              <p className="text-xs text-white/90">INOVA Hospital Veterinário 24h - Sorocaba/SP</p>
             </div>
           </div>
           <button
@@ -39,9 +39,9 @@ export const EmergencyModal: React.FC<EmergencyModalProps> = ({ isOpen, onClose 
           <div className="bg-red-50 border border-red-200 rounded-xl p-4 flex items-start gap-3">
             <Clock className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
             <div className="text-xs text-slate-800">
-              <p className="font-bold text-red-900 text-sm">Plantão Ativo 24 Horas</p>
+              <p className="font-bold text-red-900 text-sm">INOVA Unidade Nogueira Padilha - Plantão Ativo 24 Horas:</p>
               <p className="mt-0.5">
-                Nossa equipe médica, UTI veterinária, centro cirúrgico e laboratório estão funcionando neste momento na <strong className="text-slate-900">Unidade Campolim</strong>.
+                Nossa equipe médica, centro cirúrgico , internação e UTI veterinária estão funcionando neste momento na Unidade Nogueira Padilha.
               </p>
               <p className="mt-1 text-slate-600">
                 Atendimento por ordem de chegada com prioridade para casos graves e de risco iminente.
@@ -53,8 +53,8 @@ export const EmergencyModal: React.FC<EmergencyModalProps> = ({ isOpen, onClose 
             <div className="flex items-start gap-2 text-xs text-slate-700">
               <MapPin className="w-4 h-4 text-[#541E87] flex-shrink-0 mt-0.5" />
               <div>
-                <p className="font-bold text-slate-900">Unidade Campolim (Emergência 24h)</p>
-                <p>Avenida Gisele Constantino, 1495 – Parque Campolim, Sorocaba/SP</p>
+                <p className="font-bold text-slate-900">INOVA Unidade Nogueira Padilha (Emergência 24h):</p>
+                <p>Rua Cel. Nogueira Padilha, 1770 - Vila Hortência - Sorocaba/SP</p>
               </div>
             </div>
           </div>
@@ -83,7 +83,7 @@ export const EmergencyModal: React.FC<EmergencyModalProps> = ({ isOpen, onClose 
 
             <a
               id="emergency-directions-btn"
-              href="https://www.google.com/maps/search/?api=1&query=Avenida+Gisele+Constantino+1495+Sorocaba+SP"
+              href="https://www.google.com/maps/search/?api=1&query=Rua+Cel.+Nogueira+Padilha%2C+1770+-+Vila+Hort%C3%AAncia+-+Sorocaba%2FSP"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold py-2.5 rounded-xl text-center text-xs flex items-center justify-center gap-2 transition-colors"

@@ -26,27 +26,17 @@ export const Hero: React.FC<HeroProps> = ({
             {/* Main Headline */}
             <h1
               id="hero-title"
-              className="text-4xl sm:text-5xl lg:text-[56px] xl:text-[62px] font-extrabold text-white leading-[1.06] tracking-tight"
+              className="text-3xl sm:text-4xl lg:text-[46px] xl:text-[52px] font-extrabold text-white leading-[1.1] tracking-tight [text-wrap:balance]"
             >
-              Cuidado profissional
-              <br />
-              para seu pet
+              Carinho e Atenção para o seu pet. Segurança para você!
             </h1>
-
-            {/* Subtitle */}
-            <p
-              id="hero-subtitle"
-              className="text-xl sm:text-2xl font-bold text-white mt-4 sm:mt-5 [text-wrap:balance]"
-            >
-              Estamos aqui quando você precisar!
-            </p>
 
             {/* Secondary bold location badge/tagline */}
             <p
               id="hero-location-tagline"
-              className="text-base sm:text-lg lg:text-xl font-bold text-white mt-2.5 [text-wrap:balance]"
+              className="text-base sm:text-lg lg:text-xl font-bold text-white mt-4 sm:mt-5 [text-wrap:balance]"
             >
-              Hospital &amp; Clínica Veterinária 24h em Sorocaba.
+              Hospital &amp; Clínica Veterinária com 2 unidades em Sorocaba.
             </p>
 
             {/* Descriptive paragraph */}
@@ -54,9 +44,9 @@ export const Hero: React.FC<HeroProps> = ({
               id="hero-description"
               className="text-white/95 text-sm sm:text-base lg:text-[17px] mt-2 max-w-xl font-normal leading-relaxed [text-wrap:balance]"
             >
-              Equipe especializada, tecnologia avançada
+              Equipe especializada, medicina avançada
               <br />
-              e o carinho que seu pet&nbsp;merece.
+              e o cuidado que o seu pet merece.
             </p>
 
             {/* 3 Pills: Carinho, Atenção, Segurança */}

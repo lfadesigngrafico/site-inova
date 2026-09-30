@@ -190,6 +190,9 @@ export const SpecialtyDetailPage: React.FC<SpecialtyDetailPageProps> = ({
                     alt={specialty.title}
                     className="w-full h-full object-contain mix-blend-multiply"
                     referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).style.display = 'none';
+                    }}
                   />
                 </div>
               ) : (
@@ -206,6 +209,45 @@ export const SpecialtyDetailPage: React.FC<SpecialtyDetailPageProps> = ({
                 </p>
               </div>
             </div>
+
+            {/* Direct Prime Centro Diagnóstico WhatsApp Banner for Tomografia */}
+            {specialty.id === 'tomografia-veterinaria' && (
+              <div className="mb-8 p-5 sm:p-6 bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-50/50 border-2 border-[#25D366]/40 rounded-2xl shadow-xs flex flex-col md:flex-row items-center justify-between gap-4">
+                <div className="flex items-center gap-3.5">
+                  <div className="w-12 h-12 rounded-xl bg-[#25D366] flex items-center justify-center shrink-0 shadow-xs">
+                    <img
+                      src="/whatsapp_4423697.svg"
+                      alt="WhatsApp Prime"
+                      className="w-7 h-7 brightness-0 invert"
+                    />
+                  </div>
+                  <div>
+                    <span className="text-[11px] font-bold text-emerald-800 uppercase tracking-wider bg-emerald-100 px-2 py-0.5 rounded font-['Dosis',sans-serif]">
+                      Prime Centro Diagnóstico
+                    </span>
+                    <h3 className="font-['Dosis',sans-serif] font-bold text-lg sm:text-xl text-[#282828] uppercase mt-0.5">
+                      Agendamento de Tomografia Veterinária
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-600">
+                      Fale diretamente com a Prime pelo WhatsApp: +55 15 99660-1313
+                    </p>
+                  </div>
+                </div>
+                <a
+                  href="https://wa.me/5515996601313?text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20e%20agendamento%20de%20Tomografia%20Veterin%C3%A1ria%20pela%20Prime%20Centro%20Diagn%C3%B3stico"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full md:w-auto inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl shadow-xs hover:shadow-md transition-all uppercase tracking-wider !no-underline"
+                >
+                  <img
+                    src="/whatsapp_4423697.svg"
+                    alt="WhatsApp"
+                    className="w-4 h-4 brightness-0 invert"
+                  />
+                  <span>WhatsApp Prime (+55 15 99660-1313)</span>
+                </a>
+              </div>
+            )}
 
             {/* Verbatim Content Rendered with Refined Typography matching site */}
             <div
@@ -229,24 +271,53 @@ export const SpecialtyDetailPage: React.FC<SpecialtyDetailPageProps> = ({
             />
 
             {/* Bottom Callout Inside Article */}
-            <div className="mt-10 pt-8 border-t border-slate-100 bg-[#541E87]/5 rounded-xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div>
-                <h4 className="font-['Dosis',sans-serif] font-bold text-lg text-[#282828] uppercase">
-                  Precisa de consulta em {specialty.title}?
-                </h4>
-                <p className="text-xs sm:text-sm text-slate-600 mt-1">
-                  Atendimento com especialistas com hora marcada em nossas clínicas em Sorocaba.
-                </p>
+            {specialty.id === 'tomografia-veterinaria' ? (
+              <div className="mt-10 pt-8 border-t border-slate-100 bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-50/50 rounded-2xl p-6 sm:p-7 border border-emerald-200 flex flex-col sm:flex-row items-center justify-between gap-5 shadow-xs">
+                <div>
+                  <span className="text-[11px] font-bold text-emerald-800 uppercase tracking-wider bg-emerald-100 px-2.5 py-0.5 rounded-full font-['Dosis',sans-serif]">
+                    Prime Centro Diagnóstico Veterinário
+                  </span>
+                  <h4 className="font-['Dosis',sans-serif] font-bold text-xl sm:text-2xl text-[#282828] uppercase mt-1">
+                    Agende sua Tomografia com a Prime
+                  </h4>
+                  <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-lg">
+                    Em parceria com a Inova, o exame de tomografia computadorizada é conduzido pela equipe da Prime Centro Diagnóstico. Fale diretamente com o atendimento:
+                  </p>
+                </div>
+                <a
+                  href="https://wa.me/5515996601313?text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20e%20agendamento%20de%20Tomografia%20Veterin%C3%A1ria%20pela%20Prime%20Centro%20Diagn%C3%B3stico"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="shrink-0 bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl shadow-md hover:shadow-lg transition-all uppercase tracking-wider flex items-center gap-2 cursor-pointer !no-underline"
+                >
+                  <img
+                    src="/whatsapp_4423697.svg"
+                    alt="WhatsApp"
+                    className="w-4 h-4 brightness-0 invert"
+                  />
+                  <span>WhatsApp Prime: +55 15 99660-1313</span>
+                </a>
               </div>
-              <button
-                type="button"
-                onClick={onOpenAppointment}
-                className="shrink-0 bg-[#FAAE00] hover:bg-[#e69f00] text-[#282828] font-bold text-xs sm:text-sm px-6 py-3 rounded-lg shadow-sm hover:shadow-md transition-all uppercase tracking-wider flex items-center gap-2 cursor-pointer"
-              >
-                <Calendar className="w-4 h-4" />
-                Agendar Consulta
-              </button>
-            </div>
+            ) : (
+              <div className="mt-10 pt-8 border-t border-slate-100 bg-[#541E87]/5 rounded-xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div>
+                  <h4 className="font-['Dosis',sans-serif] font-bold text-lg text-[#282828] uppercase">
+                    Precisa de consulta em {specialty.title}?
+                  </h4>
+                  <p className="text-xs sm:text-sm text-slate-600 mt-1">
+                    Atendimento com especialistas com hora marcada em nossas clínicas em Sorocaba.
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={onOpenAppointment}
+                  className="shrink-0 bg-[#FAAE00] hover:bg-[#e69f00] text-[#282828] font-bold text-xs sm:text-sm px-6 py-3 rounded-lg shadow-sm hover:shadow-md transition-all uppercase tracking-wider flex items-center gap-2 cursor-pointer"
+                >
+                  <Calendar className="w-4 h-4" />
+                  Agendar Consulta
+                </button>
+              </div>
+            )}
           </main>
 
           {/* Sidebar (4 cols) - Mantendo a lista limpa das especialidades */}
@@ -321,6 +392,9 @@ export const SpecialtyDetailPage: React.FC<SpecialtyDetailPageProps> = ({
                         alt={other.title}
                         className="w-full h-full object-contain filter group-hover:scale-105 transition-transform mix-blend-multiply"
                         referrerPolicy="no-referrer"
+                        onError={(e) => {
+                          (e.currentTarget as HTMLImageElement).style.display = 'none';
+                        }}
                       />
                     ) : (
                       <HeartPulse className="w-6 h-6 text-[#541E87]" />

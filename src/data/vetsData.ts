@@ -5,6 +5,7 @@ export interface Vet {
   crmv: string;
   image: string;
   curriculum: string[];
+  specialties?: string[];
 }
 
 export const VETS_DATA: Vet[] = [
@@ -19,6 +20,11 @@ export const VETS_DATA: Vet[] = [
       "– Residência em cirurgia de pequenos animais pela UNESP – Botucatu/SP",
       "– Pós-Graduação em Neurologia e Ortopedia pelo Instituto Bioeticus – Botucatu/SP",
       "– Curso de “Ultrassonografia Articular” pela Ortopedia 360º"
+    ],
+    "specialties": [
+      "Ortopedia",
+      "Neurologia",
+      "Cirurgia"
     ]
   },
   {
@@ -35,11 +41,16 @@ export const VETS_DATA: Vet[] = [
       "– Pós-graduação em Oftalmologia Veterinária pela Anclivepa – São Paulo/SP",
       "– Gestão e liderança empreendedora pela VetCoaches – São Paulo/SP",
       "– Gestão de Pessoas pela PUC -São Paulo/SP"
+    ],
+    "specialties": [
+      "Oftalmologia",
+      "Cirurgia",
+      "Clínica Geral"
     ]
   },
   {
     "id": "vet-3",
-    "name": "Dr. Felipe Zanuzzo",
+    "name": "DR. FELIPE ZANUZZO",
     "position": "Anestesiologia e Intensivismo",
     "crmv": "CRMV-SP: 26.760",
     "image": "https://inovaveterinaria.com.br/wp-content/uploads/2023/12/Felipe-Zanuzzo.png",
@@ -49,12 +60,17 @@ export const VETS_DATA: Vet[] = [
       "– Mestrado em Anestesiologia pela UNESP – Botucatu/SP",
       "– Diplomado como Especialista em Anestesiologia pela CFMV",
       "– Professor de Pós-Graduação em Anestesiologia e Terapia Intensiva"
+    ],
+    "specialties": [
+      "Anestesiologia",
+      "Intensivista",
+      "Intensivismo"
     ]
   },
   {
     "id": "vet-4",
     "name": "DRA. MARINA CHAR",
-    "position": "Endoscopia",
+    "position": "Gastroenterologia e Endoscopia",
     "crmv": "CRMV -SP: 24.443",
     "image": "https://inovaveterinaria.com.br/wp-content/uploads/2023/12/Marina-Char.png",
     "curriculum": [
@@ -65,6 +81,10 @@ export const VETS_DATA: Vet[] = [
       "– I Curso de Videocirurgia em Pequenos Animais pela FCAV UNESP – Jaboticabal/SP",
       "– Atualização em Videoendoscopia Gastrointestinal e Respiratória pelo Instituto Qualittas – São Paulo/SP",
       "– Simpósio de Gastrenterologia na Clínica Médica de Pequenos Animais pela FMVZ UNESP – Botucatu/SP"
+    ],
+    "specialties": [
+      "Gastroenterologia",
+      "Endoscopia"
     ]
   },
   {
@@ -76,6 +96,9 @@ export const VETS_DATA: Vet[] = [
     "curriculum": [
       "– Graduação em Medicina Veterinária pela Faculdade de Ciências Sociais e Agrárias de Itapeva/SP",
       "– Pós-Graduação em Dermatologia em Cães e Gatos pela Faculdade Unyleya"
+    ],
+    "specialties": [
+      "Clínica Geral"
     ]
   },
   {
@@ -86,6 +109,9 @@ export const VETS_DATA: Vet[] = [
     "image": "https://inovaveterinaria.com.br/wp-content/uploads/2024/06/Amanda_Gabriele.png",
     "curriculum": [
       "– Graduação em Medicina Veterinária pela Faculdade Anhanguera – Sorocaba/SP"
+    ],
+    "specialties": [
+      "Clínica Geral"
     ]
   },
   {
@@ -100,12 +126,15 @@ export const VETS_DATA: Vet[] = [
       "– Curso de Emergência em Pequenos Animais pela UNESP – Araçatuba/SP",
       "– Curso de Manejo de Feridas pela Veteduka",
       "– Iniciação Científica em Reprodução de Pequenos Animais pela USP – São Paulo/SP"
+    ],
+    "specialties": [
+      "Clínica Geral"
     ]
   },
   {
     "id": "vet-8",
     "name": "DRA. ANA CRISTINA COSTACURTA",
-    "position": "Intensivismo",
+    "position": "Medicina Intensiva / Intensivista",
     "crmv": "CRMV-SP: 33.089",
     "image": "https://inovaveterinaria.com.br/wp-content/uploads/2023/12/Ana-Cristina-Costacurta.png",
     "curriculum": [
@@ -116,6 +145,10 @@ export const VETS_DATA: Vet[] = [
       "– Medicina de Urgência e Intensiva de Pequenos Animais – EQUALIS",
       "– Aspectos Clínicos das Doenças Transmitidas por Vetores – BAYER",
       "– Curso de Credenciamento e Capacitação em Células Tronco e Terapia Celular em Pequeno Animais – REGENERA STEM CELLS"
+    ],
+    "specialties": [
+      "Intensivista",
+      "Intensivismo"
     ]
   },
   {
@@ -129,24 +162,9 @@ export const VETS_DATA: Vet[] = [
       "– Aprimoramento em Cirurgia Geral de Tecidos Moles pela Bioethicus – Botucatu/SP",
       "– Pós-Graduação em Pneumologia Veterinária pela UFAPE – São Paulo/SP",
       "– Aprimoramento em Afecções Respiratórias de Cães e Gatos pela Pneumopet"
-    ]
-  },
-  {
-    "id": "vet-10",
-    "name": "DRA. BÁRBARA ZEQUINI",
-    "position": "Medicina de Felinos e Clínica Médica",
-    "crmv": "CRMV-SP: 45.557",
-    "image": "https://inovaveterinaria.com.br/wp-content/uploads/2025/05/Barbara-Zequini-2.png",
-    "curriculum": [
-      "– Graduação em Medicina Veterinária pelo Centro Universitário Max Planck",
-      "– Pós-graduação em Medicina Felina pela Equalis",
-      "– Programa de Medicina Felina pelo Instituto Luis Eliam",
-      "– Membro da Associação Brasileira de Clínicos de Felinos (ABFel)",
-      "– Curso de Medicina Felina pela Editora Equalis",
-      "– Curso FELIWAY Cat Handling Program pela CEVA",
-      "– Curso Extensivo de Clínica de Pequenos Animais pela CLIMEV/Jundiaí",
-      "– Formação Método FCPA – Ferramentas para Comunicação e Psique Animal",
-      "– Programa de Medicina Felina pelo Instituto Luis Eliam– Membro da Associação Brasileira de Medicina Veterinária Comportamental (ABMeVeC)"
+    ],
+    "specialties": [
+      "Pneumologia"
     ]
   },
   {
@@ -160,6 +178,10 @@ export const VETS_DATA: Vet[] = [
       "– Residência em Clínica Médica de Pequenos Animais pela UNESP – Botucatu/SP",
       "– Pós-graduação em Dermatologia Veterinária pela Universidade Anhembi Morumbi – São Paulo/SP",
       "– Mestrado em Clínica Médica com enfoque em Dermatologia de Pequenos Animais pela UNESP – Botucatu/SP"
+    ],
+    "specialties": [
+      "Dermatologia",
+      "Clínica Geral"
     ]
   },
   {
@@ -176,6 +198,11 @@ export const VETS_DATA: Vet[] = [
       "– Curso sobre Giardíase em cães e gatos pela MelloVet",
       "– Cursos de Atualizações sobre Gastroenterologia / Hepatopatias de Cães e Gatos pela Catexpert e UFAPE",
       "– Membro da Associação Brasileira de Gastroenterologia Animal e Colégio Brasileiro de Endoscopia e Vídeocirurgia Veterinária."
+    ],
+    "specialties": [
+      "Gastroenterologia",
+      "Endoscopia",
+      "Clínica Geral"
     ]
   },
   {
@@ -190,6 +217,10 @@ export const VETS_DATA: Vet[] = [
       "– Pós-Graduação em Neurologia pelo Instituto Bioethicus – Botucatu/SP",
       "– Associado efetivo da Associação Brasileira de Neurologia Veterinária (ABNV)",
       "– Pós-Graduação em Tomografia Computadorizada e Ressonância Magnética de Pequenos Animais pela Anclivepa – São Paulo/SP (em andamento)"
+    ],
+    "specialties": [
+      "Neurologia",
+      "Clínica Geral"
     ]
   },
   {
@@ -202,26 +233,33 @@ export const VETS_DATA: Vet[] = [
       "– GraduaÇÃO em Medicina Veterinária pela Universidade de Sorocaba (UNISO)",
       "– Trainee da Inova Hospital Veterinário",
       "– Pós-graduação em Clínica Médica de Pequenos Animais pela Anhembi Morumbi (em andamento)"
+    ],
+    "specialties": [
+      "Clínica Geral"
     ]
   },
   {
     "id": "vet-15",
     "name": "DRA. CAROLINA FERNANDA NASCIMENTO CORRÊA",
-    "position": "Neurologia e Clínica Médica",
+    "position": "Neurologia e Internação",
     "crmv": "CRMV-SP: 48.630",
     "image": "https://inovaveterinaria.com.br/wp-content/uploads/2023/12/Carolina-Fernanda-Bernabe.png",
     "curriculum": [
       "– Graduação em Medicina Veterinária pela UNISO – Sorocaba/SP",
       "– Programa de Trainee Veterinário Hospital Veterinário Inova",
-      "– Curso básico de Cardiologia Veterinária pela VESP- Sorocaba/SP",
-      "– Curso básico de Oftalmologia veterinária pela UNISO – Sorocaba/SP– Curso de Emergências Neurológicas em Pequenos Animais pela VetSoul",
+      "– Atuação dedicada à Neurologia Clínica e Internação Veterinária",
+      "– Curso de Emergências Neurológicas em Pequenos Animais pela VetSoul",
       "– Pós-Graduação em Neurologia pelo Instituto Bioethicus – Botucatu/SP"
+    ],
+    "specialties": [
+      "Neurologia",
+      "Clínica Geral"
     ]
   },
   {
     "id": "vet-16",
     "name": "DRA. CAROLINA LATINI",
-    "position": "Cardiologia e Clínica Médica",
+    "position": "Cardiologia e Pneumologia",
     "crmv": "CRMV-SP: 44.837",
     "image": "https://inovaveterinaria.com.br/wp-content/uploads/2023/12/Carolina-Latini.png",
     "curriculum": [
@@ -232,12 +270,16 @@ export const VETS_DATA: Vet[] = [
       "– Curso de aprimoramento em ecocardiograma pela Naya Especialidades – São Paulo/SP",
       "– Curso de aprimoramento em ecocardiograma e eletrocardiograma pela EcosVet",
       "– Pós-graduação em Pneumologia Veterinária pela Ufape – São Paulo/SP"
+    ],
+    "specialties": [
+      "Cardiologia",
+      "Pneumologia"
     ]
   },
   {
     "id": "vet-17",
-    "name": "DRA. CAROLINA  MEIRELLES",
-    "position": "Intensivismo",
+    "name": "DRA. CAROLINA MEIRELLES",
+    "position": "Medicina Intensiva / Intensivista",
     "crmv": "CRMV-SP: 37.102",
     "image": "https://inovaveterinaria.com.br/wp-content/uploads/2024/05/Carolina-Meirelles.png",
     "curriculum": [
@@ -249,6 +291,10 @@ export const VETS_DATA: Vet[] = [
       "– Cursos de Cuidados Palitivos em Medicina Veterinária e em Medicina Humana",
       "– Membro da Academia Brasileira de Medicina Veterinária Intensiva (BVECCS)",
       "– Ministra cursos, treinamentos e assessoria técnica em internações também pela empresa Critical Vets"
+    ],
+    "specialties": [
+      "Intensivista",
+      "Intensivismo"
     ]
   },
   {
@@ -261,6 +307,10 @@ export const VETS_DATA: Vet[] = [
       "– Graduação em medicina veterinária pela UNISO – Sorocaba/SP",
       "– Aprimoramento em cirurgia de tecidos moles pela UNESP Jaboticabal/ SP",
       "– Pós-graduação em Oncologia pela Bioethicus (em andamento)"
+    ],
+    "specialties": [
+      "Oncologia",
+      "Clínica Geral"
     ]
   },
   {
@@ -271,6 +321,9 @@ export const VETS_DATA: Vet[] = [
     "image": "https://inovaveterinaria.com.br/wp-content/uploads/2024/01/Cinthia-Figueiredo.png",
     "curriculum": [
       "– Graduação em Medicina Veterinária pela Anhanguera – Sorocaba/SP"
+    ],
+    "specialties": [
+      "Clínica Geral"
     ]
   },
   {
@@ -285,6 +338,9 @@ export const VETS_DATA: Vet[] = [
       "– Mestrado em Anestesiologia pela UNIFRAN – Franca/SP",
       "– Curso de Bloqueios Locorregionais Guiados por Ultrassom e Neurolocalizador pela IMANVET",
       "– Associada ao colégio Brasileiro de Anestesiologia Veterinária"
+    ],
+    "specialties": [
+      "Anestesiologia"
     ]
   },
   {
@@ -297,6 +353,9 @@ export const VETS_DATA: Vet[] = [
       "– Graduação em Medicina Veterinária pela USP – Pirassununga/SP",
       "– Residência em Anestesiologia Veterinária pela UNESP – Botucatu/SP",
       "– Especialização em Intensivismo (em andamento)"
+    ],
+    "specialties": [
+      "Anestesiologia"
     ]
   },
   {
@@ -310,6 +369,10 @@ export const VETS_DATA: Vet[] = [
       "– Curso EAD em Clínica Geral pelo Portal Educação",
       "– Pós-graduação em Clínica Médica e Cirurgica pelo Instituto Qualittas",
       "– Pós-graduação Cirurgia Geral de Tecidos Moles em Cães e Gatos pela FAMESP"
+    ],
+    "specialties": [
+      "Cirurgia",
+      "Clínica Geral"
     ]
   },
   {
@@ -327,28 +390,24 @@ export const VETS_DATA: Vet[] = [
       "– Coordenadora da Pós-graduação em Pneumologia de Cães e Gatos – PAV",
       "– Professora de Pós-graduação em Pneumologia e Clínica Médica",
       "– Capacitação em Ecocardiografia de cães e gatos – NAYA (em andamento)"
+    ],
+    "specialties": [
+      "Cardiologia",
+      "Pneumologia"
     ]
   },
   {
     "id": "vet-24",
-    "name": "DRA. DANIELA SCATENANA",
-    "position": "Odontologia",
+    "name": "DRA. DANIELA SCATENA",
+    "position": "Odontologia Veterinária",
     "crmv": "CRMV-SP: 19.821",
     "image": "https://inovaveterinaria.com.br/wp-content/uploads/2024/06/Daniela-Scatena.png",
     "curriculum": [
       "– Graduação em Medicina Veterinária pela Universidade Metodista de São Paulo",
       "– Pós-graduação em Odontologia de Cães e Gatos pela ANCLIVEPA – São Paulo/SP"
-    ]
-  },
-  {
-    "id": "vet-25",
-    "name": "DR. EDUARDO GONÇALVES GÓES",
-    "position": "Intensivismo",
-    "crmv": "CRMV-SP: 56.766",
-    "image": "https://inovaveterinaria.com.br/wp-content/uploads/2024/01/Eduardo-Goncalves.png",
-    "curriculum": [
-      "– Graduação em Medicina Veterinária pela Universidade de Pelotas",
-      "– Pós-Graduação em Medicina Intensiva Veterinária pelo Instituto PAV"
+    ],
+    "specialties": [
+      "Odontologia"
     ]
   },
   {
@@ -359,6 +418,9 @@ export const VETS_DATA: Vet[] = [
     "image": "https://inovaveterinaria.com.br/wp-content/uploads/2024/05/Estefani-Zeque-1.png",
     "curriculum": [
       "– Graduação em Medicina Veterinária pela Anhanguera – Sorocaba/SP"
+    ],
+    "specialties": [
+      "Clínica Geral"
     ]
   },
   {
@@ -374,6 +436,11 @@ export const VETS_DATA: Vet[] = [
       "– Certificação em Principles in Small Animal Fractures Management – AOVET",
       "– Membro do grupo Ortopedia360",
       "– Membro AOVET"
+    ],
+    "specialties": [
+      "Ortopedia",
+      "Cirurgia",
+      "Clínica Geral"
     ]
   },
   {
@@ -388,49 +455,23 @@ export const VETS_DATA: Vet[] = [
       "– Mestrado em Clínica Médica de Pequenos Animais pela UNESP – Botucatu/SP",
       "– Curso de Ultrassonografia Abdominal e Pélvica em Pequenos Animais pela Echoa – Campinas/SP",
       "– Pós-graduação em Diagnóstico por Imagem pela PAV – São Paulo/SP"
-    ]
-  },
-  {
-    "id": "vet-29",
-    "name": "DR. FREDERICO DUCATTI",
-    "position": "Ortopedia e Clínica Médica",
-    "crmv": "CRMV-SP: 48.553",
-    "image": "https://inovaveterinaria.com.br/wp-content/uploads/2023/12/Frederico-Ducatti.png",
-    "curriculum": [
-      "– Graduação em Medicina Veterinária pela UNESP – Botucatu/SP",
-      "– Residência em Cirurgia Veterinária de Pequenos Animais pela UNESP – Botucatu/SP"
-    ]
-  },
-  {
-    "id": "vet-30",
-    "name": "DR. GABRIEL CANASSA",
-    "position": "Patologia",
-    "crmv": "CRMV-SP: 48.553",
-    "image": "https://inovaveterinaria.com.br/wp-content/uploads/2024/04/Gabriel-Canassa.png",
-    "curriculum": [
-      "– Graduação em Medicina Veterinária pela UENP Bandeirantes",
-      "– Residência em Laboratório Clínico Veterinário pela FMVZ – UNESP Botucatu/SP"
+    ],
+    "specialties": [
+      "Diagnóstico por Imagem"
     ]
   },
   {
     "id": "vet-31",
-    "name": "DRA. GABRIELA MELO",
-    "position": "Nefrologia",
+    "name": "DRA. GABRIELA RODRIGUES",
+    "position": "Nefrologia e Urologia",
     "crmv": "CRMV-SP: 50.259",
     "image": "https://inovaveterinaria.com.br/wp-content/uploads/2025/04/Gabriela-Melo-1.png",
     "curriculum": [
       "– Graduação em Medicina Veterinária pela UNIFAJ – Jaguariúna/SP",
       "– Pós-graduação em Nefrologia e Urologia de pequenos animais pela Unyleya"
-    ]
-  },
-  {
-    "id": "vet-32",
-    "name": "DR. GUILHERME CIRINO",
-    "position": "Clínica Médica - Trainee",
-    "crmv": "CRMV-SP: 61.839",
-    "image": "https://inovaveterinaria.com.br/wp-content/uploads/2024/04/Guilherme-Cirino.png",
-    "curriculum": [
-      "– Graduação em Medicina Veterinária pela FMVZ – Faculdade de Medicina Veterinária e Zootecnia – UNESP Botucatu/SP"
+    ],
+    "specialties": [
+      "Nefrologia"
     ]
   },
   {
@@ -442,17 +483,24 @@ export const VETS_DATA: Vet[] = [
     "curriculum": [
       "– Graduação em Medicina Veterinária pela UNISO – Sorocaba/SP",
       "– Pós-graduação em Cirurgia Geral pela Anclivepa – São Paulo/SP"
+    ],
+    "specialties": [
+      "Clínica Geral"
     ]
   },
   {
     "id": "vet-34",
     "name": "DR. HERBERT ALMEIDA",
-    "position": "Clínica Médica",
+    "position": "Cardiologia e Clínica Médica",
     "crmv": "CRMV-SP: 52924",
     "image": "https://inovaveterinaria.com.br/wp-content/uploads/2024/04/Herbert-Almeida.png",
     "curriculum": [
       "– Graduação em Medicina Veterinária pela UNESP – Botucatu/SP",
       "– Pós-graduação em Cardiologia Veterinária pela UFAPE (em andamento)"
+    ],
+    "specialties": [
+      "Cardiologia",
+      "Clínica Geral"
     ]
   },
   {
@@ -465,6 +513,9 @@ export const VETS_DATA: Vet[] = [
       "– Graduação em Medicina Veterinária pela UNISO – Sorocaba/SP",
       "– Pós-graduação em Diagnóstico por Imagem pela PAV – São Paulo/SP",
       "– MBA em Liderança Transformadora pela Unyleya"
+    ],
+    "specialties": [
+      "Diagnóstico por Imagem"
     ]
   },
   {
@@ -476,6 +527,9 @@ export const VETS_DATA: Vet[] = [
     "curriculum": [
       "– Graduação em Medicina Veterinária pela UNISO – Sorocaba/SP",
       "– Pós-graduação em Emergência e Cuidados Intensivos em Pequenos Animais (em andamento)"
+    ],
+    "specialties": [
+      "Clínica Geral"
     ]
   },
   {
@@ -488,6 +542,10 @@ export const VETS_DATA: Vet[] = [
       "– Graduação em Medicina Veterinária pela UNISO – Sorocaba/SP",
       "– Pós-graduação em Clínica Médica e Cirúrgica de Pequenos Animais – Instituto Qualittas – São Paulo/SP",
       "– Pós-graduação em Hematologia Veterinária pela Intercursos UFAPE"
+    ],
+    "specialties": [
+      "Hematologia",
+      "Clínica Geral"
     ]
   },
   {
@@ -500,33 +558,9 @@ export const VETS_DATA: Vet[] = [
       "– Graduação em Medicina Veterinária pela UNISO – Sorocaba/SP",
       "– Curso MI – Medicina Interna do Paciente Grave pela Intensivet",
       "– Pós-graduação em Anestesiologia Veterinária pela UFAPE – São Paulo/SP"
-    ]
-  },
-  {
-    "id": "vet-39",
-    "name": "DRA. KARINA WOGEL",
-    "position": "Medicina Integrativa",
-    "crmv": "CRMV-SP: 47.257",
-    "image": "https://inovaveterinaria.com.br/wp-content/uploads/2024/01/Karina-Wogel.png",
-    "curriculum": [
-      "– Graduação em Medicina Veterinária pela UNIMAX",
-      "– Pós-graduação em Cannabis Medicinal na UNYLEYA",
-      "– Pós-graduação em Acupuntura Veterinária pela BIOETHICUS",
-      "– Curso Internacional de Medicina Veterinária Canabinoide pela BIOETHICUS",
-      "– Curso de Fotobiomodulação em Medicina Veterinária BIOETHICUS",
-      "– Curso de Cannabis Medicinal pela UNIFESP",
-      "– Curso de Fitoterapia pela BIOETHICUS",
-      "– Curso de Dietoterapia Chinesa pela BIOETHICUS",
-      "– Curso de Cannabis Medicinal aplicada na Medicina Veterinária com Dr. PET CANNABIS",
-      "– Curso de Cannabis and the Pain Crisis pela OAKSTERDAM UNIVERSITY",
-      "– Curso teórico prático de Ozonioterapia na Medicina Veterinária pelo Instituto Brasileiro de Ozonioterapia",
-      "– Ozonioterapia e dor na BIOETHICUS",
-      "– Curso de Reiki Usui nível III pela HOLOS VETERINÁRIA",
-      "– Moxabustão e Eletroacupuntura pela BIOETHICUS",
-      "– Animal Behavior and Welfare pela THE UNIVERSITY OF EDINBURGH",
-      "– Dog Emotion and Cognition pela DUKE UNIVERSITY",
-      "– Nutrição clínica veterinária na EQUALIS",
-      "– Atualização em Reabilitação e Fisioterapia pela Fisiocare (em andamento)"
+    ],
+    "specialties": [
+      "Anestesiologia"
     ]
   },
   {
@@ -537,9 +571,12 @@ export const VETS_DATA: Vet[] = [
     "image": "https://inovaveterinaria.com.br/wp-content/uploads/2023/12/Julia-Pacheco.png",
     "curriculum": [
       "– Graduação em Medicina Veterinária pela UNISO – Sorocaba/SP",
-      "– XIII Curso Intensivo de Fisioterapia pela FisioCare -São Paulo/SP",
-      "– Curso de Atualização em Ortopedia e Neurologia em Pequenos Animais pela Acupet – Sorocaba/SP",
-      "– Pós-graduação em Fisioterapia e Reabilitação Veterinária pela IBVET – Indaiatuba/SP (em andamento)"
+      "– XIII Curso Intensivo de Fisioterapia pela FisioCare – São Paulo/SP",
+      "– Capacitação em Reabilitação Física e Ozonioterapia em Pequenos Animais",
+      "– Pós-graduação em Fisioterapia e Reabilitação Veterinária pela IBVET – Indaiatuba/SP"
+    ],
+    "specialties": [
+      "Fisioterapia"
     ]
   },
   {
@@ -551,39 +588,23 @@ export const VETS_DATA: Vet[] = [
     "curriculum": [
       "– Graduação em Medicina Veterinária pela UNISO – Sorocaba/SP",
       "– Curso teórico-prático Intensivo de Ultrassonografia Abdominal pela NEXVET"
-    ]
-  },
-  {
-    "id": "vet-42",
-    "name": "DRA. KARLA MORAIS",
-    "position": "Internação",
-    "crmv": "CRMV-SP  52.295",
-    "image": "https://inovaveterinaria.com.br/wp-content/uploads/2024/04/Karla-Morais.png",
-    "curriculum": [
-      "– Graduação em Medicina Veterinária pela UNISO – Sorocaba/SP",
-      "– Pós-graduação em Medicina Intensiva pelo Instituto PAV (em andamento)",
-      "– Curso de Introdução a Cardiologia Veterinária pela Accore",
-      "– Simpósio de Emergências pela Veteduka"
+    ],
+    "specialties": [
+      "Clínica Geral"
     ]
   },
   {
     "id": "vet-43",
     "name": "DRA. KEVELLIN SILVA",
-    "position": "Clínica Médica e Fisioterapia",
+    "position": "Medicina Felina e Clínica Médica",
     "crmv": "CRMV-SP  56.650",
     "image": "https://inovaveterinaria.com.br/wp-content/uploads/2025/04/Kevellin.png",
     "curriculum": [
       "– Graduação em Medicina Veterinária pela Universidade Cruzeiro do Sul (CEUNSP)– XV Curso Extensivo de Fisiatria Veterinária pela FisioCare Pet – 35º Curso Intensivo de Fisioterapia Veterinária pela FisioCare Pet– Ozônioterapia e Tópicos Avançados em Ozonioterapia Veterinária pelo Instituto Bioethicus– Cannabis Medicinal pelo Instituto Bioethicus– Termografia pelo Instituto Bioethicus– Implante de Ouro pelo Instituto Bioethicus– Pós-Graduação em Clínica Médica de Gatos pela Faculdade de Minas Gerais– Programa Academia de Medicina Felina – Drª Polyana Paixão– 1º Simpósio Internacional de Emergência em Medicina Felina – Dr. Reginaldo Pereira"
-    ]
-  },
-  {
-    "id": "vet-44",
-    "name": "DRA. LAIRA MARQUES",
-    "position": "Clínica Médica - Trainee",
-    "crmv": "CRMV-SP  69.940",
-    "image": "https://inovaveterinaria.com.br/wp-content/uploads/2025/04/Lair-Marques.png",
-    "curriculum": [
-      "– Graduação em Medicina Veterinária pela UNISO – Sorocaba/SP"
+    ],
+    "specialties": [
+      "Medicina Felina",
+      "Clínica Geral"
     ]
   },
   {
@@ -599,17 +620,10 @@ export const VETS_DATA: Vet[] = [
       "– Curso Hot topics em Endocrinologia Felina pela MV MINDS",
       "– Programa de Trainees Inova (duração de 1 ano e meio)",
       "– Membro da Associação Brasileira de Endocrinologia Veterinária (ABEV)"
-    ]
-  },
-  {
-    "id": "vet-46",
-    "name": "DRA. LAÍS CORREA",
-    "position": "Intensivismo",
-    "crmv": "CRMV-SP  57.253",
-    "image": "https://inovaveterinaria.com.br/wp-content/uploads/2024/05/Lais-Correa.png",
-    "curriculum": [
-      "– Graduação em Medicina Veterinária pela Universidade Nossa Senhora do Patrocinio (CEUNSP)",
-      "– Pós-graduação em Terapia Intensiva e Emergência Veterinária pela UFAPE – São Paulo/SP"
+    ],
+    "specialties": [
+      "Endocrinologia",
+      "Clínica Geral"
     ]
   },
   {
@@ -624,6 +638,9 @@ export const VETS_DATA: Vet[] = [
       "– Mestrado em Cirurgia Geral de Pequenos Animais pela UNESP – Jaboticabal/SP",
       "– Pós graduação em Oftalmologia Veterinária pela Anclivepa-SP",
       "– Monitora da Pós Graduação de Oftalmologia Veterinária Anclivepa- SP"
+    ],
+    "specialties": [
+      "Oftalmologia"
     ]
   },
   {
@@ -636,6 +653,9 @@ export const VETS_DATA: Vet[] = [
       "– Graduação em Medicina Veterinária pela UNISO – Sorocaba/SP",
       "– Curso intensivo de ultrassonografia abdominal em pequenos animais NEXVET",
       "– Pós-graduação em Diagnóstico por Imagem pela UFAPE (em andamento)"
+    ],
+    "specialties": [
+      "Diagnóstico por Imagem"
     ]
   },
   {
@@ -649,23 +669,32 @@ export const VETS_DATA: Vet[] = [
       "– Pós-graduação em Clínica Médica e Cirúrgica pelo Instituto Qualittas – São Paulo/SP",
       "– Pós-graduação em Cirurgia de Tecidos Moles pela Anclivepa – São Paulo/SP",
       "– Pós-graduação em Oncologia Veterinária pelo Instituto Bioethicus – Botucatu/SP"
+    ],
+    "specialties": [
+      "Oncologia",
+      "Cirurgia"
     ]
   },
   {
     "id": "vet-50",
-    "name": "Dra. Lisiane Char",
+    "name": "DRA. LISIANE CHAR",
     "position": "Odontologia, Clínica Médica e Cirurgia Geral",
     "crmv": "CRMV-SP: 23.995",
     "image": "https://inovaveterinaria.com.br/wp-content/uploads/2024/04/Lisiane-Char.png",
     "curriculum": [
       "– Graduação em Medicinina Veterinária pela UNESP – Botucatu/SP– Residência em Cirurgia de Pequenos Animais pela UNESP – Botucatu/SP– Pós-Graduação em Odontologia Veterinária pela Anclivepa – São Paulo/SP",
       "– Membro da Associação Brasileira de Odontologia Veterinária"
+    ],
+    "specialties": [
+      "Odontologia",
+      "Cirurgia",
+      "Clínica Geral"
     ]
   },
   {
     "id": "vet-51",
     "name": "DR. LUIGI MACIEL",
-    "position": "Ortopedia e Cirurgia",
+    "position": "Ortopedia, Neurologia e Cirurgia",
     "crmv": "CRMV-SP: 49.817",
     "image": "https://inovaveterinaria.com.br/wp-content/uploads/2023/12/Luigi-Maciel.png",
     "curriculum": [
@@ -673,6 +702,11 @@ export const VETS_DATA: Vet[] = [
       "– Residência em Cirurgia de Pequenos Animais com ênfase em Ortopedia pela UNESP – Botucatu/SP",
       "– Membro da plataforma Orthopedia 360.",
       "– Participação como monitor em diversos cursos na área de ortopedia e neurocirurgia pelo Instituto Bioethicus."
+    ],
+    "specialties": [
+      "Ortopedia",
+      "Neurologia",
+      "Cirurgia"
     ]
   },
   {
@@ -684,6 +718,9 @@ export const VETS_DATA: Vet[] = [
     "curriculum": [
       "– Graduação Medicina Veterinária pela UNISO – Sorocaba/SP",
       "– Curso Intensivo em Ultrassonografia Veterinária pela Echoa"
+    ],
+    "specialties": [
+      "Diagnóstico por Imagem"
     ]
   },
   {
@@ -701,6 +738,9 @@ export const VETS_DATA: Vet[] = [
       "– Curso avançado de Otologia Veterinária pela Anclivepa",
       "– Curso de Otologia pela Equalis",
       "– Curso de Alergologia pela Equalis"
+    ],
+    "specialties": [
+      "Dermatologia"
     ]
   },
   {
@@ -713,12 +753,16 @@ export const VETS_DATA: Vet[] = [
       "– Graduação em Medicina Veterinária pela UNESP – Botucatu/SP",
       "– Residência em Clínica Médica pela UNESP – Botucatu/SP",
       "– Pós-graduação em Endocrinologia Veterinária pela Anclivepa – São Paulo/SP"
+    ],
+    "specialties": [
+      "Endocrinologia",
+      "Clínica Geral"
     ]
   },
   {
     "id": "vet-55",
     "name": "DRA. MARIA CLARA LAUDINO",
-    "position": "Clínica Médica",
+    "position": "Nefrologia e Clínica Médica",
     "crmv": "CRMV-SP: 62.085",
     "image": "https://inovaveterinaria.com.br/wp-content/uploads/2023/12/Maria-Clara-Laudino.png",
     "curriculum": [
@@ -726,6 +770,10 @@ export const VETS_DATA: Vet[] = [
       "– Pós-graduação em Clínica Médica de Pequenos Animais pela Anhembi Morumbi – São Paulo / SP",
       "– Programa de Trainees Inova – Aprimoramento Veterinário em clínica médica – duração de 2 anos",
       "– Pós-graduação em Nefrologia pelo Instituto PAV (em andamento)"
+    ],
+    "specialties": [
+      "Nefrologia",
+      "Clínica Geral"
     ]
   },
   {
@@ -740,6 +788,9 @@ export const VETS_DATA: Vet[] = [
       "– Pós-graduação em Oftalmologia Veterinária pela Anclivepa – São Paulo/SP",
       "– Curso de Ultrassom Ocular pelo GENOV",
       "– Curso Híbrido Teórico-Prático de Eletrorretinografia em Pequenos Animais"
+    ],
+    "specialties": [
+      "Oftalmologia"
     ]
   },
   {
@@ -754,17 +805,10 @@ export const VETS_DATA: Vet[] = [
       "– Membro da Associação Brasileira de Odontologia Veterinária – ABOV",
       "– Aprimoramento em Medicina Intensiva pela Cetacvet – São Paulo/SP",
       "– Aprimoramento em Radiologia Veterinária – IVI Instituto Veterinário de Imagem – São Paulo/SP"
-    ]
-  },
-  {
-    "id": "vet-58",
-    "name": "DR. MATHEUS FAVERO",
-    "position": "Diagnóstico por Imagem",
-    "crmv": "CRMV -SP: 42.783",
-    "image": "https://inovaveterinaria.com.br/wp-content/uploads/2024/04/Matheus-Favero.png",
-    "curriculum": [
-      "– Graduação em Medicina Veterinária pela UNISO – Sorocaba/SP",
-      "– Curso de ultrassonografia veterinária pelo IVI – SP"
+    ],
+    "specialties": [
+      "Odontologia",
+      "Cirurgia"
     ]
   },
   {
@@ -780,6 +824,10 @@ export const VETS_DATA: Vet[] = [
       "– Título de Especialista conferido para Colégio Brasileiro de Oftalmologia Veterinária (CBOV) e aprovado pelo Conselho Federal de Medicina Veterinária (CFMV)",
       "– Atualmente é docente do grupo GENOV",
       "– Mentora do grupo de estudos avançados"
+    ],
+    "specialties": [
+      "Oftalmologia",
+      "Cirurgia"
     ]
   },
   {
@@ -794,6 +842,9 @@ export const VETS_DATA: Vet[] = [
       "– Mestrado em Clínica Médica pela UNESP – Botucatu/SP",
       "– Pós-graduação em Clínica Médica de cães em gatos pela ANCLIVEPA/SP",
       "– Pós-graduação em Nefrologia e Urologia de cães e gatos pela ANCLIVEPA/SP"
+    ],
+    "specialties": [
+      "Clínica Geral"
     ]
   },
   {
@@ -811,6 +862,11 @@ export const VETS_DATA: Vet[] = [
       "– Membro do Ortopedia 360",
       "– Aovet Prínciples in Small Animal Fracture Management",
       "– Estágio no VCA Manhattan Veterinária Group"
+    ],
+    "specialties": [
+      "Ortopedia",
+      "Neurologia",
+      "Cirurgia"
     ]
   },
   {
@@ -825,6 +881,9 @@ export const VETS_DATA: Vet[] = [
       "– Aprimoramento em Radiodiagnóstico Veterinário pelo Instituto Veterinário de Imagem – IVI",
       "– Capacitação em Ultrassonografia Intervencionista pela NAUS – Núcleo de Aperfeiçoamento em Ultrassonografia Veterinária",
       "– Participação em diversos cursos e workshops de atualização em medicina veterinária, incluindo temas de ultrassonografia abdominal de pequenos animais, ultrassonografia em felinos, ultrassonografia gestacional em pequenos animais, clínica médica e diagnóstico veterinário."
+    ],
+    "specialties": [
+      "Diagnóstico por Imagem"
     ]
   },
   {
@@ -833,7 +892,10 @@ export const VETS_DATA: Vet[] = [
     "position": "Oftalmologia",
     "crmv": "CRMV-SP: 19.663",
     "image": "https://inovaveterinaria.com.br/wp-content/uploads/2025/04/Natercia.png",
-    "curriculum": []
+    "curriculum": [],
+    "specialties": [
+      "Oftalmologia"
+    ]
   },
   {
     "id": "vet-64",
@@ -846,20 +908,9 @@ export const VETS_DATA: Vet[] = [
       "– Residência em Diagnóstico por Imagem pela UNESP – Botucatu/SP",
       "– Trainee com ênfase em Diagnóstico por Imagem no Hospital Veterinário VEROS – São Paulo/SP",
       "– Pós-graduação em Neurologia Veterinária pelo Instituto Bioethicus (em andamento)"
-    ]
-  },
-  {
-    "id": "vet-65",
-    "name": "DRA. RAFAELA SOUZA",
-    "position": "Nutrologia",
-    "crmv": "CRMV-SP: 51.136",
-    "image": "https://inovaveterinaria.com.br/wp-content/uploads/2025/04/Rafaela-Souza.png",
-    "curriculum": [
-      "– Graduação em Medicina Veterinária – UNISO",
-      "– Especialização em Clínica Médica de cães e gatos – USJT",
-      "– Especialização em Nutrição de Cães e Gatos – FAMEESP",
-      "– Afiliada ao Colégio Brasileiro de Nutrição Animal (CBNA)",
-      "– Participação em diversos cursos, palestras e congresso de Nutrição pet."
+    ],
+    "specialties": [
+      "Diagnóstico por Imagem"
     ]
   },
   {
@@ -871,6 +922,9 @@ export const VETS_DATA: Vet[] = [
     "curriculum": [
       "– Graduação em Medicina Veterinária pela UNISO – Sorocaba/SP",
       "– Pós-graduação em Clinica Médica e Cirúrgica de Pets Exóticos e Animais Silvestres pela Qualittas"
+    ],
+    "specialties": [
+      "Clínica Geral"
     ]
   },
   {
@@ -881,11 +935,14 @@ export const VETS_DATA: Vet[] = [
     "image": "https://inovaveterinaria.com.br/wp-content/uploads/2024/04/Rodrigo-Cincotto.png",
     "curriculum": [
       "– Graduação em Medicina Veterinária pela Unipinhal – Espírito Santo do Pinhal/SP– Curso de Ultrassonografia Abdominal pelo IVI Instituto Veterinário de Imagem – São Paulo/SP– Pós-graduação em Cirurgia e Clínica Médica em Pequenos Animais pela Qualittas – Campinas/SP– Pós-graduação em Cirurgia Geral Avançada pelo Cetacvet – São Paulo/SP – Especialização em Videolaparoscopia pelo Cetacvet – São Paulo/SP – Membro do Colégio Brasileiro de Endoscopia e VideoCirurgia Veterinária – CBEVV"
+    ],
+    "specialties": [
+      "Cirurgia"
     ]
   },
   {
     "id": "vet-68",
-    "name": "Dra. Sofia Cerejo",
+    "name": "DRA. SOFIA CEREJO",
     "position": "Anestesiologia",
     "crmv": "CRMV-SP: 31.354",
     "image": "https://inovaveterinaria.com.br/wp-content/uploads/2024/04/Sofia-Cerejo.png",
@@ -894,12 +951,15 @@ export const VETS_DATA: Vet[] = [
       "– Residência em Anestesiologia Veterinária pela UNIFRAN – Franca/SP",
       "– Mestrado em Anestesiologia pela UNESP – Botucatu/SP",
       "– Pós-graduação em Intensivismo pela PAV – São Paulo/SP"
+    ],
+    "specialties": [
+      "Anestesiologia"
     ]
   },
   {
     "id": "vet-69",
     "name": "DRA. SUSANA VIEIRA",
-    "position": "Patologia",
+    "position": "Patologia Clínica Veterinária",
     "crmv": "CRMV-SP: 53.912",
     "image": "https://inovaveterinaria.com.br/wp-content/uploads/2024/04/Susana-Vieira.png",
     "curriculum": [
@@ -916,6 +976,9 @@ export const VETS_DATA: Vet[] = [
       "– Publicações Científicas no Encontro Brasileiro de Patologia Clínica",
       "– Membro da Diretoria da ABVHMT",
       "– Coordenadora da Pós-Graduação e Professora de Patologia Clínica – Faculdade Anclivepa"
+    ],
+    "specialties": [
+      "Patologia"
     ]
   },
   {
@@ -929,16 +992,24 @@ export const VETS_DATA: Vet[] = [
       "– Pós-Graduada em Clínica cirúrgica – Qualittas",
       "– Pós-Graduada em Anestesiologia – USP/SP",
       "– Curso de Anestesia de bloqueio loco-regional em cães e gatos pelo IMAN"
+    ],
+    "specialties": [
+      "Anestesiologia"
     ]
   },
   {
-    "id": "vet-71",
-    "name": "DRA. VERÔNIKA OLIVEIRA",
-    "position": "Emergência e Intensivismo",
-    "crmv": "CRMV-SP: 41.867",
-    "image": "https://inovaveterinaria.com.br/wp-content/uploads/2024/06/Veronika-Oliveira.png",
+    "id": "vet-beatriz-gaibina",
+    "name": "DRA. BEATRIZ GAIBINA",
+    "position": "Nutrologia Veterinária",
+    "crmv": "CRMV-SP: 58.742",
+    "image": "",
     "curriculum": [
-      "– Graduação pela UNISO / Sorocaba – SP.– Pós-graduação em Medicina Veterinária intensiva – PAV / São Paulo"
+      "– Graduação em Medicina Veterinária",
+      "– Especialização em Nutrição e Nutrologia de Cães e Gatos",
+      "– Atendimento nutrológico personalizado, controle de peso e modulação de dietas clínicas"
+    ],
+    "specialties": [
+      "Nutrologia"
     ]
   }
 ];

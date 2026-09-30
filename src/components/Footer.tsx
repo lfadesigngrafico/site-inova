@@ -81,13 +81,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacyPolicy }) => {
             </h2>
 
             <div className="space-y-5 text-[13px] sm:text-[14px] leading-relaxed text-[#282828]">
-              {/* Unidade Campolim */}
+              {/* Unidade Nogueira Padilha */}
               <div>
                 <p className="font-extrabold text-[#282828] uppercase">
-                  INOVA UNIDADE CAMPOLIM
+                  INOVA UNIDADE NOGUEIRA PADILHA
                 </p>
-                <p>Avenida Gisele Constantino, 1495</p>
-                <p>Parque Campolim – Sorocaba/SP</p>
+                <p>Avenida Nogueira Padilha,</p>
+                <p>1770 Vila Hortência – Sorocaba/SP</p>
                 <p>
                   Contato:{' '}
                   <a
@@ -99,13 +99,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacyPolicy }) => {
                 </p>
               </div>
 
-              {/* Unidade Nogueira Padilha */}
+              {/* Unidade Campolim */}
               <div>
                 <p className="font-extrabold text-[#282828] uppercase">
-                  INOVA UNIDADE NOGUEIRA PADILHA
+                  INOVA UNIDADE CAMPOLIM
                 </p>
-                <p>Avenida Nogueira Padilha,</p>
-                <p>1770 Vila Hortência – Sorocaba/SP</p>
+                <p>Avenida Gisele Constantino, 1495</p>
+                <p>Parque Campolim – Sorocaba/SP</p>
                 <p>
                   Contato:{' '}
                   <a
@@ -126,31 +126,42 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacyPolicy }) => {
             </h2>
 
             <div className="space-y-4 text-[13px] sm:text-[14px] leading-relaxed text-[#282828]">
-              {/* Hospital Pronto Atendimento */}
+              {/* Unidade Nogueira Padilha */}
               <div>
                 <p className="font-extrabold text-[#282828]">
-                  Hospital para Pronto Atendimento e Emergências:
+                  INOVA Unidade Nogueira Padilha:
                 </p>
-                <p>Todos os dias – 24h</p>
-                <p className="text-[#282828]/90">Atendimento por ordem de chegada</p>
+                <p className="font-medium text-[#282828]">
+                  Hospital 24h e Clínica de Especialidades
+                </p>
+                <p className="text-[#282828]">
+                  Clínica de 2ª a 6ª-feira: das 07h às 21h | Sábados: 08h às 18h
+                </p>
+                <p className="text-[#282828]">
+                  Pronto Atendimento e Emergências: Todos os dias 24 horas.
+                </p>
+                <p className="text-[#282828]/90 text-[12px] sm:text-[13px]">
+                  Atendimento por ordem de chegada
+                </p>
               </div>
 
-              {/* Unidade Nogueira Padilha Clínica */}
+              {/* Unidade Campolim */}
               <div>
-                <p className="font-extrabold text-[#282828] uppercase">
-                  INOVA UNIDADE NOGUEIRA PADILHA (CLÍNICA)
+                <p className="font-extrabold text-[#282828]">
+                  INOVA Unidade Campolim
                 </p>
-                <p>Segunda a Sexta-feira: das 08 às 21h</p>
-                <p>Sábados das 08h às 18h</p>
-              </div>
-
-              {/* Unidade Campolim Especialidades e Vacinas */}
-              <div>
-                <p className="font-extrabold text-[#282828] uppercase">
-                  INOVA UNIDADE CAMPOLIM (ESPECIALIDADES E VACINAS)
+                <p className="font-medium text-[#282828]">
+                  Clínica de Vacinas e Especialidades
                 </p>
-                <p>Segunda a Sexta-feira: das 09h às 20h</p>
-                <p>Sábados das 09h às 13h</p>
+                <p className="text-[#282828]">
+                  2ª a 6ª-feira: das 07h10 às 20h
+                </p>
+                <p className="text-[#282828]">
+                  Sábados: das 08h às 13h
+                </p>
+                <p className="text-[#282828]/90 text-[12px] sm:text-[13px]">
+                  Domingos e Feriados: Fechado
+                </p>
               </div>
             </div>
           </div>

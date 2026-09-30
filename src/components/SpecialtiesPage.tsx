@@ -157,6 +157,9 @@ export const SpecialtiesPage: React.FC<SpecialtiesPageProps> = ({
                           alt={specialty.title}
                           className="w-full h-full object-contain mix-blend-multiply"
                           referrerPolicy="no-referrer"
+                          onError={(e) => {
+                            (e.currentTarget as HTMLImageElement).style.display = 'none';
+                          }}
                         />
                       ) : (
                         <Stethoscope className="w-10 h-10 text-[#541E87]" />
@@ -179,7 +182,7 @@ export const SpecialtiesPage: React.FC<SpecialtiesPageProps> = ({
                 </div>
 
                 {/* Card Footer with clickable link to specialty subpage */}
-                <div className="px-6 sm:px-7 py-4 bg-slate-50/70 border-t border-slate-100 flex items-center justify-between group-hover:bg-purple-50/30 transition-colors">
+                <div className="px-6 sm:px-7 py-4 bg-slate-50/70 border-t border-slate-100 flex items-center justify-between group-hover:bg-purple-50/30 transition-colors gap-2">
                   <span
                     onClick={(e) => {
                       e.stopPropagation();
@@ -189,6 +192,24 @@ export const SpecialtiesPage: React.FC<SpecialtiesPageProps> = ({
                   >
                     VER DETALHES DA ESPECIALIDADE &gt;
                   </span>
+
+                  {specialty.id === 'tomografia-veterinaria' && (
+                    <a
+                      href="https://wa.me/5515996601313?text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20e%20agendamento%20de%20Tomografia%20Veterin%C3%A1ria%20pela%20Prime%20Centro%20Diagn%C3%B3stico"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="inline-flex items-center gap-1.5 text-xs font-bold bg-[#25D366] hover:bg-[#20ba5a] text-white px-3 py-1.5 rounded-lg shadow-2xs transition-colors uppercase tracking-wider shrink-0"
+                      title="Falar com Prime Centro Diagnóstico pelo WhatsApp (+55 15 99660-1313)"
+                    >
+                      <img
+                        src="/whatsapp_4423697.svg"
+                        alt="WhatsApp"
+                        className="w-3.5 h-3.5 brightness-0 invert"
+                      />
+                      <span>WhatsApp Prime</span>
+                    </a>
+                  )}
                 </div>
               </div>
             ))}

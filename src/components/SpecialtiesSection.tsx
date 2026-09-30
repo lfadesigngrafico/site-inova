@@ -26,15 +26,6 @@ export const SpecialtiesSection: React.FC<SpecialtiesSectionProps> = ({
 
   const SPECIALTIES: Specialty[] = [
     {
-      id: 'gastroenterologia',
-      name: 'Gastroenterologia',
-      borderColor: 'border-[#9B51E0]',
-      textColor: 'text-[#9B51E0]',
-      description:
-        'Diagnóstico e tratamento de patologias do trato gastrointestinal em cães e gatos, incluindo esôfago, estômago, intestinos, fígado e pâncreas.',
-      icon: 'https://inovaveterinaria.com.br/wp-content/uploads/2022/04/Especialidade-de-Gastroenterologia-Inova-Hospital-Veterinario.png',
-    },
-    {
       id: 'cardiologia',
       name: 'Cardiologia',
       borderColor: 'border-[#9B51E0]',
@@ -53,15 +44,6 @@ export const SpecialtiesSection: React.FC<SpecialtiesSectionProps> = ({
       icon: 'https://inovaveterinaria.com.br/wp-content/uploads/2020/09/oftalmologia.png',
     },
     {
-      id: 'odontologia',
-      name: 'Odontologia',
-      borderColor: 'border-[#00BFA5]',
-      textColor: 'text-[#00BFA5]',
-      description:
-        'Prevenção de tártaro, extrações cirúrgicas, tratamento periodontal e correção ortodôntica para garantir a saúde bucal e digestiva.',
-      icon: 'https://inovaveterinaria.com.br/wp-content/uploads/2020/09/odontologia.png',
-    },
-    {
       id: 'ortopedia-2',
       name: 'Ortopedia',
       borderColor: 'border-[#8BC34A]',
@@ -71,28 +53,49 @@ export const SpecialtiesSection: React.FC<SpecialtiesSectionProps> = ({
       icon: 'https://inovaveterinaria.com.br/wp-content/uploads/2020/09/ortopedia.png',
     },
     {
-      id: 'fisioterapia',
-      name: 'Fisioterapia',
+      id: 'neurologia',
+      name: 'Neurologia',
+      borderColor: 'border-[#9B51E0]',
+      textColor: 'text-[#9B51E0]',
+      description:
+        'Diagnóstico e tratamento de convulsões, hérnias de disco, traumas cranianos e distúrbios do sistema nervoso central e periférico.',
+      icon: 'https://inovaveterinaria.com.br/wp-content/uploads/2020/09/neurologia.png',
+    },
+    {
+      id: 'odontologia',
+      name: 'Odontologia',
       borderColor: 'border-[#00BFA5]',
       textColor: 'text-[#00BFA5]',
       description:
-        'Reabilitação física integrada, hidroterapia, laserterapia, alívio de dores crônicas e recuperação pós-operatória para devolver a mobilidade.',
-      icon: 'https://inovaveterinaria.com.br/wp-content/uploads/2020/09/716_INOVA_SITE_PICTOGRAMA_FISIOTERAPIA.png',
+        'Prevenção de tártaro, extrações cirúrgicas, tratamento periodontal e correção ortodôntica para garantir a saúde bucal e digestiva.',
+      icon: 'https://inovaveterinaria.com.br/wp-content/uploads/2020/09/odontologia.png',
+    },
+    {
+      id: 'intensivista',
+      name: 'Intensivismo',
+      borderColor: 'border-[#8BC34A]',
+      textColor: 'text-[#8BC34A]',
+      description:
+        'Cuidado médico contínuo e especializado para animais internados em UTI veterinária, pós-operatórios complexos e suporte a órgãos vitais.',
+      icon: '/images/specialties/intensivista.svg',
     },
   ];
 
   const ALL_OTHER_SPECIALTIES = [
-    'Neurologia e Neurocirurgia',
+    'Gastroenterologia',
+    'Fisioterapia e Reabilitação',
     'Dermatologia e Alergologia',
     'Endocrinologia',
     'Oncologia Clínica e Cirúrgica',
     'Nefrologia e Urologia',
-    'Animais Silvestres e Exóticos',
+    'Pneumologia Veterinária',
+    'Patologia Clínica',
+    'Emergência Veterinária 24h',
+    'Endoscopia Veterinária',
     'Cirurgia Geral e Tecidos Moles',
     'Anestesiologia Veterinária',
     'Medicina Felina Especializada',
     'Nutrição e Nutrologia Pet',
-    'Infectologia Veterinária',
     'Hematologia e Transfusões',
   ];
 

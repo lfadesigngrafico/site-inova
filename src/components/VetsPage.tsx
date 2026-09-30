@@ -7,6 +7,7 @@ import {
   GraduationCap,
   ArrowLeft,
   Filter,
+  User,
 } from 'lucide-react';
 import { VETS_DATA, Vet } from '../data/vetsData';
 
@@ -30,14 +31,25 @@ export const VetsPage: React.FC<VetsPageProps> = ({
     'Todos',
     'Cirurgia',
     'Oftalmologia',
-    'Anestesiologia',
     'Ortopedia',
-    'Clínica Geral',
     'Cardiologia',
     'Medicina Felina',
     'Diagnóstico por Imagem',
+    'Gastroenterologia',
+    'Pneumologia',
+    'Odontologia',
+    'Neurologia',
+    'Fisioterapia',
+    'Oncologia',
+    'Endocrinologia',
+    'Nutrologia',
+    'Nefrologia',
+    'Hematologia',
+    'Patologia',
+    'Anestesiologia',
     'Dermatologia',
-    'Intensivismo',
+    'Intensivista',
+    'Clínica Geral',
   ];
 
   const filteredVets = useMemo(() => {
@@ -47,12 +59,18 @@ export const VetsPage: React.FC<VetsPageProps> = ({
         vet.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         vet.position.toLowerCase().includes(searchTerm.toLowerCase()) ||
         vet.crmv.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (vet.specialties && vet.specialties.some((s) => s.toLowerCase().includes(searchTerm.toLowerCase()))) ||
         vet.curriculum.some((c) => c.toLowerCase().includes(searchTerm.toLowerCase()));
 
       const matchesSpecialty =
         selectedSpecialty === 'Todos' ||
-        vet.position.toLowerCase().includes(selectedSpecialty.toLowerCase()) ||
-        vet.curriculum.some((c) => c.toLowerCase().includes(selectedSpecialty.toLowerCase()));
+        (vet.specialties
+          ? (
+              vet.specialties.includes(selectedSpecialty) ||
+              (selectedSpecialty === 'Intensivista' && (vet.specialties.includes('Intensivista') || vet.specialties.includes('Intensivismo'))) ||
+              (selectedSpecialty === 'Dermatologia' && (vet.specialties.includes('Dermatologia') || vet.specialties.includes('Dermato')))
+            )
+          : vet.position.toLowerCase().includes(selectedSpecialty.toLowerCase()));
 
       return matchesSearch && matchesSpecialty;
     });
@@ -189,17 +207,28 @@ export const VetsPage: React.FC<VetsPageProps> = ({
               >
                 {/* Vet Image - dimensão quadrada, sem hover e sem corte da foto */}
                 <div className="relative bg-white overflow-hidden aspect-square flex items-center justify-center p-3 sm:p-4">
-                  <img
-                    src={vet.image}
-                    alt={vet.name}
-                    loading="lazy"
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-contain"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src =
-                        'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=600';
-                    }}
-                  />
+                  {vet.image ? (
+                    <img
+                      src={vet.image}
+                      alt={vet.name}
+                      loading="lazy"
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-contain"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src =
+                          'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=600';
+                      }}
+                    />
+                  ) : (
+                    <div className="w-full h-full rounded-lg bg-slate-50 border border-dashed border-slate-200 flex flex-col items-center justify-center text-slate-400 gap-2 p-4 text-center">
+                      <div className="w-16 h-16 rounded-full bg-purple-50 flex items-center justify-center text-[#541E87]">
+                        <User className="w-8 h-8" />
+                      </div>
+                      <span className="text-[11px] font-medium text-slate-400 uppercase tracking-wider font-['Dosis',sans-serif]">
+                        Foto em breve
+                      </span>
+                    </div>
+                  )}
                 </div>
 
                 {/* Card Content - Exibidas até o final do CRMV-SP */}
@@ -291,16 +320,27 @@ export const VetsPage: React.FC<VetsPageProps> = ({
             <div className="p-6 overflow-y-auto space-y-6">
               {/* Profile Top: Image and basic details */}
               <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 pb-5 border-b border-slate-100">
-                <img
-                  src={selectedVet.image}
-                  alt={selectedVet.name}
-                  referrerPolicy="no-referrer"
-                  className="w-32 h-32 sm:w-36 sm:h-36 object-contain shrink-0"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src =
-                      'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=600';
-                  }}
-                />
+                {selectedVet.image ? (
+                  <img
+                    src={selectedVet.image}
+                    alt={selectedVet.name}
+                    referrerPolicy="no-referrer"
+                    className="w-32 h-32 sm:w-36 sm:h-36 object-contain shrink-0"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src =
+                        'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=600';
+                    }}
+                  />
+                ) : (
+                  <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-xl bg-slate-50 border border-dashed border-slate-200 flex flex-col items-center justify-center text-slate-400 gap-2 shrink-0">
+                    <div className="w-14 h-14 rounded-full bg-purple-50 flex items-center justify-center text-[#541E87]">
+                      <User className="w-7 h-7" />
+                    </div>
+                    <span className="text-[11px] font-medium text-slate-400 uppercase tracking-wider font-['Dosis',sans-serif]">
+                      Foto em breve
+                    </span>
+                  </div>
+                )}
                 <div className="text-center sm:text-left flex-1">
                   <h3 className="font-['Dosis',sans-serif] font-bold text-2xl text-[#282828] uppercase leading-tight mb-1">
                     {selectedVet.name}

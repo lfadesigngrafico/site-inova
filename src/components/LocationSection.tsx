@@ -40,47 +40,64 @@ export const LocationSection: React.FC<LocationSectionProps> = ({
             </h2>
 
             {/* Subtitle */}
-            <p className="text-sm sm:text-[15px] text-[#282828]/85 leading-relaxed mb-6 sm:mb-7 [text-wrap:balance]">
-              Localização estratégica no coração de
-              <br className="hidden sm:inline" /> Sorocaba, com fácil acesso para toda a&nbsp;região.
+            <p className="text-sm sm:text-[15px] text-[#282828]/85 leading-relaxed mb-4 sm:mb-5 [text-wrap:balance]">
+              Localização estratégica em Sorocaba com fácil acesso para toda a região.
+            </p>
+
+            {/* Instruction line */}
+            <p className="text-xs sm:text-[13px] font-semibold text-[#541E87] mb-2.5 flex items-center gap-1.5">
+              <span>Clique na Unidade:</span>
             </p>
 
             {/* Box 1: Unidade Nogueira Padilha */}
             <div
               onClick={() => setSelectedUnit('nogueira')}
-              className={`border rounded-2xl p-4 sm:p-4.5 mb-3.5 transition-all cursor-pointer ${
+              className={`border-2 rounded-2xl p-4 sm:p-4.5 mb-3.5 transition-all cursor-pointer ${
                 selectedUnit === 'nogueira'
-                  ? 'border-[#E5A823] bg-[#FEFBF2]/40 shadow-xs'
-                  : 'border-[#E5A823]/60 bg-white hover:border-[#E5A823]'
+                  ? 'border-[#E5A823] bg-[#FEFBF2] shadow-sm'
+                  : 'border-slate-200 bg-white hover:border-slate-300'
               }`}
             >
               <h3 className="font-bold text-[#E5A823] text-sm sm:text-[15px] mb-1 leading-snug">
-                Inova Unidade Nogueira Padilha (Hospital 24h):
+                INOVA Unidade Nogueira Padilha:
               </h3>
-              <p className="text-xs sm:text-[13px] text-[#282828] leading-normal">
-                <span className="font-bold">Clínica de Seg a Sex:</span> 08h às 21h |{' '}
-                <span className="font-bold">Sáb:</span> 08h às 18h
+              <p className="text-xs sm:text-[13px] font-medium text-[#282828] leading-normal mb-1">
+                Hospital 24h e Clínica de Especialidades
               </p>
-              <p className="text-xs sm:text-[13px] text-[#282828] leading-normal mt-0.5">
-                <span className="font-bold">Pronto Atendimento:</span> Todos os dias, 24h
+              <p className="text-xs sm:text-[13px] text-[#282828]/90 leading-normal">
+                Clínica de 2ª a 6ª-feira: das 07h às 21h | Sábados: 08h às 18h
+              </p>
+              <p className="text-xs sm:text-[13px] text-[#282828]/90 leading-normal mt-1">
+                Pronto Atendimento e Emergências: Todos os dias 24 horas.
+              </p>
+              <p className="text-[11px] sm:text-xs text-slate-500 font-medium leading-normal mt-0.5">
+                Atendimento por ordem de chegada
               </p>
             </div>
 
             {/* Box 2: Unidade Campolim */}
             <div
               onClick={() => setSelectedUnit('campolim')}
-              className={`border rounded-2xl p-4 sm:p-4.5 mb-4 sm:mb-5 transition-all cursor-pointer ${
+              className={`border-2 rounded-2xl p-4 sm:p-4.5 mb-4 sm:mb-5 transition-all cursor-pointer ${
                 selectedUnit === 'campolim'
-                  ? 'border-[#E5A823] bg-[#FEFBF2]/40 shadow-xs'
-                  : 'border-[#E5A823]/60 bg-white hover:border-[#E5A823]'
+                  ? 'border-[#E5A823] bg-[#FEFBF2] shadow-sm'
+                  : 'border-slate-200 bg-white hover:border-slate-300'
               }`}
             >
               <h3 className="font-bold text-[#E5A823] text-sm sm:text-[15px] mb-1 leading-snug">
-                Inova Unidade Campolim (Especialidades e Vacinas):
+                INOVA Unidade Campolim
               </h3>
-              <p className="text-xs sm:text-[13px] text-[#282828] leading-normal">
-                <span className="font-bold">Seg a Sex:</span> 08h às 20h |{' '}
-                <span className="font-bold">Sáb:</span> 08h às 13h
+              <p className="text-xs sm:text-[13px] font-medium text-[#282828] leading-normal mb-1">
+                Clínica de Vacinas e Especialidades
+              </p>
+              <p className="text-xs sm:text-[13px] text-[#282828]/90 leading-normal">
+                2ª a 6ª-feira: das 07h10 às 20h
+              </p>
+              <p className="text-xs sm:text-[13px] text-[#282828]/90 leading-normal mt-0.5">
+                Sábados: das 08h às 13h
+              </p>
+              <p className="text-xs sm:text-[13px] text-slate-500 font-medium leading-normal mt-0.5">
+                Domingos e Feriados: Fechado
               </p>
             </div>
 
